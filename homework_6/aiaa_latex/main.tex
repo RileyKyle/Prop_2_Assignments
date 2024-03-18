@@ -23,12 +23,14 @@
 \end{figure}
 
 \textbf{Answers:}   \newline \newline
-$x_{T_{max}} = $    \newline \newline
-$Q\dot = $          \newline \newline
+$x_{T_w=T_s} = 0.9031078 m$    \newline \newline
+$\dot{Q} = 21.147 MW$          \newline \newline
 $F = $              \newline \newline
 $I_{sp} = $         \newline \newline
 
 \clearpage
+
+
 Conditions for sin power density distribution.\newline
 \begin{enumerate}
     \item zero slope of $T_t$ at $x=0$
@@ -38,14 +40,43 @@ Conditions for sin power density distribution.\newline
     \item zero slope of $T_t$ at $x=L$
 \end{enumerate}
 
+Additionally $T_s\rightarrow max(T_w)$ occurs at some $x$ between $x=L/2$ and $x=L$.\newline
 
-Additionally $T_s\rightarrow T_w$ occurs at some $x$ between $x=L/2$ and $x=L$.
+Can find the location where $T_w$ is equal to $T_s$ by using:
+
+\begin{equation}
+    \left(\frac{x}{L}\right)_{T_w=T_s} = 1+\frac{1}{\pi} \tan^{-1}{\frac{-\pi D}{2 C_f L}}
+    = 0.9031078
+\end{equation}
+
+Use this equation to find $\Delta{T_m}$:
+
+\begin{equation}
+    T_s = T_{t_1} + \frac{2 C_F L}{\pi D} \Delta{T_m} \left({1+\sqrt{1+\left(\frac{\pi D}{2 C_f L}\right)^2}}\right)
+    \rightarrow\Delta{T_m}=460.152 K
+\end{equation}
+
+
+We can then use this equation to find the total temperature at station 2:
+
+\begin{equation}
+    T_{t_2} - T_{t_1}  = \frac{4 C_F L}{\pi D} \Delta{T_m}
+    \rightarrow T_{t_2}=3129.420 K
+\end{equation}
+
+Since we know the change in temperature through the reactor we can calculate the heat generated using:
 
 
 \begin{equation}
-    \label{sample:equation}
-    \sum^{n}_{i=1}{2n-1}
+    \dot{Q}=\dot{m} c_p \left(T_{t_2} - T_{t_1}\right)
+    =\boxed{21.147 MW}
 \end{equation}
 
+Where:
+
+\begin{equation}
+    c_p = \frac{\gamma}{\gamma-1} R 
+    =14437.5 \frac{J}{kgK}
+\end{equation}
 
 \end{document}

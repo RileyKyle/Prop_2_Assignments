@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1710708245.43679 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/homework_6/aiaa_latex/main.tex" "main.pdf" "main" 1710708247.03609 0
-  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/homework_6/aiaa_latex/main.tex" 1710708244 1116 cd112f8ba58587ad6e68029a09e8f02c ""
+["pdflatex"] 1710723852.78961 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/homework_6/aiaa_latex/main.tex" "main.pdf" "main" 1710723854.41821 0
+  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/homework_6/aiaa_latex/main.tex" 1710723852 2051 798baca5e9ad069bacf04d7f790a6b04 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1706435564 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1706435564 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1706434132 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -44,6 +44,7 @@
   "c:/texlive/2023/texmf-dist/fonts/vf/public/newtx/ntxmi7.vf" 1706435564 2576 4000b56c7179792370b883556f71007a ""
   "c:/texlive/2023/texmf-dist/fonts/vf/public/newtx/ntxmia.vf" 1706435564 2056 17a96727a1080b515c483edfb4650902 ""
   "c:/texlive/2023/texmf-dist/fonts/vf/public/newtx/ntxsy.vf" 1706435564 1804 0d5405efa3655e9ce85ebf4efa9b7f0b ""
+  "c:/texlive/2023/texmf-dist/fonts/vf/public/newtx/ntxsy7.vf" 1706435564 1932 eb3a33127536e5b93d4fbe6076112b0d ""
   "c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1706435458 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2023/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1706432659 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "c:/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1706432971 40635 c40361e206be584d448876bba8a64a3b ""
@@ -156,9 +157,9 @@
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1706437808 8211030 146dbdfe0cf1d9c6234bf74805263ff0 ""
   "c:/texlive/2023/texmf.cnf" 1706437683 713 e69b156964470283e0530f5060668171 ""
   "engine_diag.png" 1710703868 234493 dfb286907c8c868175d0b8d16a5eef92 ""
-  "main.aux" 1710708246 235 82ba52b08ff864bda7068f07a9b86953 "pdflatex"
-  "main.out" 1710708246 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1710708244 1116 cd112f8ba58587ad6e68029a09e8f02c ""
+  "main.aux" 1710723854 182 c188dd01a208de8af031bd33e7ba0fb0 "pdflatex"
+  "main.out" 1710723853 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1710723852 2051 798baca5e9ad069bacf04d7f790a6b04 ""
   "new-aiaa.cls" 1710703868 3046 6495496c6ec29c9d8effcadfbb8e6731 ""
   (generated)
   "main.aux"
