@@ -23,8 +23,8 @@
 \end{figure}
 
 \textbf{Answers:}   \newline \newline
-$x_{T_w=T_s} = 0.9031078 m$    \newline \newline
-$\dot{Q} = 21.147 MW$          \newline \newline
+$x_{T_w=T_s} = 0.9031078 \ m$    \newline \newline
+$\dot{Q} = 21.147 \ MW$          \newline \newline
 $F = $              \newline \newline
 $I_{sp} = $         \newline \newline
 
@@ -46,14 +46,14 @@ Can find the location where $T_w$ is equal to $T_s$ by using:
 
 \begin{equation}
     \left(\frac{x}{L}\right)_{T_w=T_s} = 1+\frac{1}{\pi} \tan^{-1}{\frac{-\pi D}{2 C_f L}}
-    = 0.9031078
+    \rightarrow x_{T_w=T_s}= \boxed{0.9031078 \ m}
 \end{equation}
 
 Use this equation to find $\Delta{T_m}$:
 
 \begin{equation}
     T_s = T_{t_1} + \frac{2 C_F L}{\pi D} \Delta{T_m} \left({1+\sqrt{1+\left(\frac{\pi D}{2 C_f L}\right)^2}}\right)
-    \rightarrow\Delta{T_m}=460.152 K
+    \rightarrow\Delta{T_m}=460.152 \ K
 \end{equation}
 
 
@@ -61,7 +61,7 @@ We can then use this equation to find the total temperature at station 2:
 
 \begin{equation}
     T_{t_2} - T_{t_1}  = \frac{4 C_F L}{\pi D} \Delta{T_m}
-    \rightarrow T_{t_2}=3129.420 K
+    \rightarrow T_{t_2}=3129.420 \ K
 \end{equation}
 
 Since we know the change in temperature through the reactor we can calculate the heat generated using:
@@ -69,7 +69,7 @@ Since we know the change in temperature through the reactor we can calculate the
 
 \begin{equation}
     \dot{Q}=\dot{m} c_p \left(T_{t_2} - T_{t_1}\right)
-    =\boxed{21.147 MW}
+    =\boxed{21.147 \ MW}
 \end{equation}
 
 Where:
@@ -78,5 +78,35 @@ Where:
     c_p = \frac{\gamma}{\gamma-1} R 
     =14437.5 \frac{J}{kgK}
 \end{equation}
+
+The following equation, along with a root solver (scipy.optimize.fsolve), can be used to find the mach number at station 2:
+
+\begin{equation}
+    \sqrt{\frac{T_{t_2}}{T_{t_1}}} = 
+    \frac{M_2}{M_1} \left[\frac{1+\gamma M_1^2 \left[1-\frac{C_f L}{D}\right]}{1+\gamma M_2^2 \left[1+\frac{C_f L}{D}\right]}\right] 
+    \left[\frac{1+\frac{\gamma-1}{2}M_2^2}{1+\frac{\gamma-1}{2}M_1^2}\right]^{\frac{1}{2}}
+    \rightarrow M_2= 0.138137
+\end{equation}
+
+The static pressure ratio is:
+
+\begin{equation}
+    \frac{P_2}{P_1} = 
+    \left[\frac{1+\gamma M_1^2 \left[1-\frac{C_f L}{D}\right]}{1+\gamma M_2^2 \left[1+\frac{C_f L}{D}\right]}\right] 
+    = 0.85751166
+\end{equation}
+
+Then we can find the pressure at location 2:
+
+\begin{equation}
+    \frac{P_{t_2}}{P_{t_1}} = 
+    \frac{P_2}{P_1}
+    \left[\frac{1+\frac{\gamma-1}{2}M_2^2}{1+\frac{\gamma-1}{2}M_1^2}\right]^{\frac{\gamma}{\gamma-1}} 
+    = 0.86847317 \rightarrow P_{t_2} = 173.695 \ {kPa}
+\end{equation}
+
+This total pressure is also the total pressure at the exit of the nozzle and the chamber pressure.\newline
+ 
+
 
 \end{document}
