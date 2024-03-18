@@ -324,6 +324,11 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1r.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/vf/public/newtx/ntxsy5.vf
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/newtx/txsys.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/newtx/txex-bar.tfm
+INPUT ./output.png
+INPUT ./output.png
+INPUT ./output.png
+INPUT ./output.png
+INPUT ./output.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

@@ -9,7 +9,7 @@
 \usepackage{longtable,tabularx}
 \setlength\LTleft{0pt} 
 
-\title{Homework 6: Nuclear Propulsion}
+\title{Homework 6}
 \author{Riley J. Kyle} 
 
 \begin{document}
@@ -25,22 +25,11 @@
 \textbf{Answers:}   \newline \newline
 $x_{T_w=T_s} = 0.9031078 \ m$    \newline \newline
 $\dot{Q} = 21.147 \ MW$          \newline \newline
-$F = $              \newline \newline
-$I_{sp} = $         \newline \newline
+$F = 4593.557 \ N$              \newline \newline
+$I_{sp} =  936.505 \ sec$         \newline \newline
 
 \clearpage
 
-
-Conditions for sin power density distribution.\newline
-\begin{enumerate}
-    \item zero slope of $T_t$ at $x=0$
-
-    \item max slope of $T_t$ at $x=L/2$
-
-    \item zero slope of $T_t$ at $x=L$
-\end{enumerate}
-
-Additionally $T_s\rightarrow max(T_w)$ occurs at some $x$ between $x=L/2$ and $x=L$.\newline
 
 Can find the location where $T_w$ is equal to $T_s$ by using:
 
@@ -105,8 +94,85 @@ Then we can find the pressure at location 2:
     = 0.86847317 \rightarrow P_{t_2} = 173.695 \ {kPa}
 \end{equation}
 
-This total pressure is also the total pressure at the exit of the nozzle and the chamber pressure.\newline
- 
+This total pressure and temperature is also the total pressure and temperature at the exit of the nozzle given that we have an isentropic nozzle.\newline
 
+Because the nozzle is isentropic we can use the following equation to find the Mach number at the nozzle exit:
+
+\begin{equation}
+    \dot{m}_{H_2}= 
+    \frac{P_{t_e A_e}}{\sqrt{T_{t_e}}} \sqrt{\frac{\gamma}{R}}
+    M_e  (1+ \frac{\gamma-1}{2} M_e^2)^{\frac{-(\gamma+1)}{2 (\gamma-1)}}
+    \rightarrow M_e = 6.99997 \approx 7.0
+\end{equation}
+
+Using the Mach number, total temperature, and total pressure we can find the temperature and pressure at the exit.\newline
+
+Exit temperature is:
+
+\begin{equation}
+    T_e= 
+    \frac{T_{te}}{1+\frac{\gamma-1}{2} M_e^2}
+    = 289.763 \ K
+\end{equation} 
+
+\pagebreak 
+Exit pressure is:
+
+\begin{equation}
+    P_e= 
+    \frac{P_{te}}{\left(1+\frac{\gamma-1}{2} M_e^2\right)^{\frac{\gamma}{\gamma-1}}}
+    = 41.958 \ Pa
+\end{equation}
+
+The velocity at the exit is:
+
+\begin{equation}
+    u_e= 
+    M_e \sqrt{\gamma R T_e}
+    = 9055.114 \ m/s
+\end{equation}
+
+
+Because the control volume is drawn around the propellant tanks there is only mass flow leaving the system. 
+Because of this we calculate the thrust using only the exit velocity and pressure. 
+Also since the external pressure should be close to zero that term cancels out.\newline
+
+The thrust produced by the engine is:
+
+\begin{equation}
+    F= 
+    \dot{m}_p u_e + P_e A_e
+    = \boxed{4593.557 \ N}
+\end{equation}
+
+Then the specific impulse can be found with:
+
+\begin{equation}
+    I_{sp}= 
+    \frac{F}{\dot{m}_p g_0}
+    = \boxed{ 936.505 \ sec}
+\end{equation}
+
+
+
+The total temperature of the gas and the wall with respect to their axial location can be plotted using the following equations:
+
+\begin{equation}
+    T_t = T_{t_1} 
+    + \frac{2 C_f}{D} \Delta T_m \frac{L}{\pi}\left[1-\cos{\frac{\pi x}{L}} \right]
+\end{equation}
+
+\begin{equation}
+    T_w = T_{t_1} 
+    + \frac{2 C_f}{D} \Delta T_m \frac{L}{\pi}\left[1-\cos{\frac{\pi x}{L}} \right]
+    + \Delta T_m \sin{\frac{\pi x}{L}}
+\end{equation}
+
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{output.png}
+    \caption{Gas total temperature and wall temperature along the axial direction}
+\end{figure}
 
 \end{document}
