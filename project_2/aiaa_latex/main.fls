@@ -1,8 +1,8 @@
-PWD c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_2/aiaa_latex
+PWD c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/project_2/aiaa_latex
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_2/aiaa_latex/main.tex
+INPUT c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/project_2/aiaa_latex/main.tex
 OUTPUT main.log
 INPUT ./new-aiaa.cls
 INPUT new-aiaa.cls
