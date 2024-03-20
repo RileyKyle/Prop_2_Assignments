@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.28)  20 MAR 2024 00:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.28)  20 MAR 2024 00:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -671,11 +671,7 @@ File: t1ntxtlf.fd 2021/05/24 v1.1 font definition file for T1/ntx/tlf
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 21.
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 21.
- (./main.aux
-
-LaTeX Warning: Label `tab:table1' multiply defined.
-
-)
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 21.
@@ -877,23 +873,19 @@ Package lettrine.sty Info: Targeted height = 24.53409pt
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D86067C27F05A7B0844CECC62E4089B4;1884.
  ) 
 Here is how much of TeX's memory you used:
- 23789 strings out of 474222
- 435244 string characters out of 5750209
+ 23790 strings out of 474222
+ 435256 string characters out of 5750209
  1939978 words of memory out of 5000000
- 45643 multiletter control sequences out of 15000+600000
+ 45644 multiletter control sequences out of 15000+600000
  625023 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  95i,11n,131p,1119b,935s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/ztmb.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (4 pages, 158670 bytes).
+Output written on main.pdf (4 pages, 158863 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  108 compressed objects within 2 object streams
