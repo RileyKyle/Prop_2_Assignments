@@ -50,6 +50,10 @@ $u$ & velocity $\left[m/s \right]$\\
 $M$ & mach number\\
 $A$ & area $\left[m^2 \right]$\\
 $F$ & thrust $\left[N \right]$\\
+$R$ & gas constant $\left[J/kgK\right]$\\
+$C_p$ & constant pressure specific heat $\left[J/kgK\right]$\\
+$\gamma$ & specific heat ratio\\
+$\dot{m}$ & mass flow rate $\left[kg/s\right]$\\
 
 \multicolumn{2}{@{}l}{Subscripts}\\
 $d$ & diffuser\\
@@ -85,16 +89,12 @@ The temperature and pressure information is shown in table \ref{tab:table0}. Thi
     
 In this project we will be utilizing the assumption of the working fluid being a calorically perfect gas, air, with a constant $C_p$, $\gamma$, and $R$ of 1004.5 J/kgK, 1.4, and 287 J/kgK respectively.
 It is also stated that this is a FAT jet that is choked at the turbine face and nozzle throat. This tells us that $A_4$, $A_8$, $\tau_t$, and $\pi_t$ are constant across the design space.
-Additionally, it was assumed that the fuel flow rate is small, and the turbine efficiency does not change; As shown in previous assignments, even without this assumption the results only change slightly. \\
-
-
-\noindent The compressor isentropic efficiency and corrected rpm are given by the following equations:
+Additionally, it was assumed that the fuel flow rate is small, and the turbine efficiency does not change; As shown in previous assignments, even without this assumption the results only change slightly. The compressor isentropic efficiency and corrected rpm are given by the following equations:
 
 \begin{equation}
     \eta_c = 
     -2.3219 + 1.7094 \left(\frac{T_{t4}}{T_{t2}}\right)  -0.2897 \left(\frac{T_{t4}}{T_{t2}}\right)^2 + 0.0155 \left(\frac{T_{t4}}{T_{t2}}\right)^3
 \end{equation}
-
 
 \begin{equation}
     \eta_c = 
@@ -133,23 +133,18 @@ Using these values and the equations presented in this section we can completely
 \begin{equation}
     P = \rho R T
 \end{equation} 
-
 \begin{equation}
     u = M \sqrt{\gamma R T}
 \end{equation} 
-
 \begin{equation}
     C_p T_t = C_p T + \frac{u^2}{2}
 \end{equation} 
-
 \begin{equation}
     \dot{m} = \rho u A
 \end{equation} 
-
 \begin{equation}
     \frac{T_t}{T} = 1 + \frac{\gamma-1}{2} M^2
 \end{equation} 
-
 \begin{equation}
     \frac{P_t}{P} = \left(1 + \frac{\gamma-1}{2} M^2\right)^{\frac{\gamma}{\gamma-1}}
 \end{equation} 
@@ -244,12 +239,10 @@ The mass flow if there was no spillage was also calculated. This is used in late
 
 Since we are lacking knowledge of the performance of the compressor and turbo-machinery at this sample point we need to derive a procedure for numerically solving for this. In doing this I found that a slight modification to the procedure from homework 3 worked. The following equations were used to create a function of only the total temperature at the turbine face.
 
-\noindent Compressor temperature ratio:
+\noindent Compressor temperature and pressure ratios:
 \begin{equation}
     \tau_c = 1+\frac{T_{t4}}{T_{t0}} \left(1-\tau_t\right)
 \end{equation} 
-
-\noindent Compressor pressure ratio:
 \begin{equation}
     \pi_c = \left(1+\eta_c \left(\tau_c-1\right)\right)^\frac{\gamma}{\gamma-1}
 \end{equation} 
@@ -261,6 +254,10 @@ Since we are lacking knowledge of the performance of the compressor and turbo-ma
 \begin{equation}
     \dot{m} = \frac{\Gamma}{\sqrt{R T_{t4}}} A_4 \left[P_0 \pi_r \pi_d \pi_c \pi_b\right]
 \end{equation} 
+\noindent Where:
+\begin{equation}
+    \Gamma = \frac{2}{\gamma+1}^{\frac{\gamma+1}{2(\gamma-1)}} \sqrt{\gamma}
+\end{equation} 
 
 These were all combined into the following equation. Since we picked the fuel flow rate of this current iteration we can write the following equation.
 
@@ -268,13 +265,12 @@ These were all combined into the following equation. Since we picked the fuel fl
     0 = \frac{\dot{m} C_p}{h} \left(T_{t4} - \tau_c T_{t2} \right) - \dot{m}_f
 \end{equation} 
 
-Since this is multiple equations all with the same unknown variable we can use a root solver to find $T_{t4}$. In this case I am using the python function scipy.optimize.fsolve(). Here I would enter the equation, equation 15 in this case, and initial guess for the temperature. For each case except for the 12 km case I used the initial guess of 900 K, however I noticed the 12 km case was very sensitive to this initial guess. For this I ended up using 700 K.
+Since this is multiple equations all with the same unknown variable we can use a root solver to find $T_{t4}$. In this case I am using the python function scipy.optimize.fsolve(). Here I would enter the equation, equation 16 in this case, and initial guess for the temperature. For each case except for the 12 km case I used the initial guess of 900 K, however I noticed the 12 km case was very sensitive to this initial guess. For this I ended up using 700 K.
 After solving for this value the rest of the engine can be solved for. Using the $\pi_c$ calculated from equation 13 we can use equation 2 to find the turbo-machinery RPM. and since the turbine temperature and pressure ratios are constant we can use those to directly calculate the total pressure and temperature at the exit.
 
 \begin{equation}
     T_{t8} = T_{t4} \tau_t
 \end{equation} 
-
 \begin{equation}
     P_{t8} = P_{t4} \pi_t
 \end{equation} 
@@ -284,7 +280,6 @@ After solving for this value the rest of the engine can be solved for. Using the
 \begin{equation}
     T_{8} = \frac{T_{t8}}{1+\frac{\gamma-1}{2}} 
 \end{equation} 
-
 \begin{equation}
     P_{8} = \frac{P_{t8}}{\left(1+\frac{\gamma-1}{2}\right)^{\frac{\gamma}{\gamma-1}}} 
 \end{equation} 
