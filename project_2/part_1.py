@@ -1,8 +1,5 @@
 # %%
 import numpy as np
-import scipy
-import matplotlib.pyplot as plt
-
 
 # %%
 def eta_c_fit(Tt2,Tt4):
@@ -136,6 +133,8 @@ rho[3] = P[3]/(R*T[3])
 
 A[3] = m_dot / (rho[3] * u[3])
 
+tau_c
+
 # %% [markdown]
 # ## turbine face
 
@@ -207,14 +206,8 @@ A[8] = m_dot / (rho[8] * u[8])
 
 
 # %%
-# r.T8 = r.Tt8 / (1+(gamma-1)/2*r.M2**2)
-# r.P8 = r.Pt8 / (1+(gamma-1)/2*r.M2**2)**(gamma/(gamma-1))
-
-
-# r.u8 = r.M2 * np.sqrt(gamma*R*r.T8)
-# r.rho8 = r.P8 / (r.T8*R)
-# r.A8 = r.m_dot_air / (r.rho8 * r.u8)
-# r.F = (r.m_dot_air) * (r.u8 - r.u0) + (r.P8 - r.P0) * r.A8
+F = (m_dot) * (u[8] - u[0]) + (P[8] - P[0]) * A[8]
+f = m_dot_f/m_dot
 
 # %% [markdown]
 # # Table
@@ -230,13 +223,3 @@ table = np.array([
     Pt,
     Tt 
 ])
-
-table = np.delete(table,(6,7),1)
-print(table)
-
-# %%
-
-
-# %%
-
-
