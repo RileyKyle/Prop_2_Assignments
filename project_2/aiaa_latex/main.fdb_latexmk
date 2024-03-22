@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1711066874.15739 "c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/project_2/aiaa_latex/main.tex" "main.pdf" "main" 1711066876.30756 0
-  "c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/project_2/aiaa_latex/main.tex" 1711066873 17843 e8c41746058a3f1dffdebef6ca398446 ""
+["pdflatex"] 1711067029.64749 "c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/project_2/aiaa_latex/main.tex" "main.pdf" "main" 1711067031.82653 0
+  "c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/project_2/aiaa_latex/main.tex" 1711067026 17956 4b5023f3bf857d8edb3d18c18f940173 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1706435564 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1706435564 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1706435564 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -177,9 +177,9 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1706437704 5035139 e8cdab388a5f122f6094769190400852 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1706437808 8211030 146dbdfe0cf1d9c6234bf74805263ff0 ""
   "c:/texlive/2023/texmf.cnf" 1706437683 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1711066876 2171 bfa115b8cfe7c2e95870e7c9948628b6 "pdflatex"
-  "main.out" 1711066876 1461 4deb67eed726c38c1290b1024b3364a1 "pdflatex"
-  "main.tex" 1711066873 17843 e8c41746058a3f1dffdebef6ca398446 ""
+  "main.aux" 1711067031 2171 7ece2ad75d198c04d2604419a92c9691 "pdflatex"
+  "main.out" 1711067031 1461 4deb67eed726c38c1290b1024b3364a1 "pdflatex"
+  "main.tex" 1711067026 17956 4b5023f3bf857d8edb3d18c18f940173 ""
   "new-aiaa.cls" 1706472852 2938 6495496c6ec29c9d8effcadfbb8e6731 ""
   (generated)
   "main.aux"
