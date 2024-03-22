@@ -477,11 +477,11 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 INPUT c:/texlive/2023/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/txfonts/t1xttsl.tfm
 INPUT c:/texlive/2023/texmf-dist/tex/latex/txfonts/t1txtt.fd
 INPUT c:/texlive/2023/texmf-dist/tex/latex/txfonts/t1txtt.fd
 INPUT c:/texlive/2023/texmf-dist/tex/latex/txfonts/t1txtt.fd
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/txfonts/t1xbtt.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/txfonts/t1xttsl.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
