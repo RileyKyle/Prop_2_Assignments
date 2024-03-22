@@ -129,7 +129,37 @@ Using these values and the equations presented in this section we can completely
     \end{tabular}
     \end{table}  
 
+\noindent The equations used for the engine analysis are:
+\begin{equation}
+    P = \rho R T
+\end{equation} 
+
+\begin{equation}
+    u = M \sqrt{\gamma R T}
+\end{equation} 
+
+\begin{equation}
+    C_p T_t = C_p T + \frac{u^2}{2}
+\end{equation} 
+
+\begin{equation}
+    \dot{m} = \rho u A
+\end{equation} 
+
+\begin{equation}
+    \frac{T_t}{T} = 1 + \frac{\gamma-1}{2} M^2
+\end{equation} 
+
+\begin{equation}
+    \frac{P_t}{P} = \left(1 + \frac{\gamma-1}{2} M^2\right)^{\frac{\gamma}{\gamma-1}}
+\end{equation} 
+\begin{equation}
+    F = \dot{m} \left(u_8 - u_0\right)+ \left(P_8 - P_0\right) A_8
+\end{equation} 
+The Python code for this section is shown in Appendix A
 \subsection{Results}
+The completely defined on-design engine is shown in table \ref{tab:table1} and \ref{tab:table2}. 
+Station 6, the isentropic duct, and station 7, the converging section of the nozzle are not tabulated here.
 
 \begin{table}[hbt!]
     \caption{\label{tab:table1} On-Design Operation}
@@ -187,67 +217,170 @@ Using these values and the equations presented in this section we can completely
 \section{Develop the complete performance envelope for this specific turbojet engine}
 \subsection{Methodology}
 
+In a separate Python file, shown in Appendix B, the date that would remain constant were carried over. The constant values were $pi_t$, $\tau_t$, $\eta_t$, $\pi_d$, $\pi_b$, $\dot{m}_f$, $A_1$, $A_4$, $A_8$, $M_4$, and $M_8$.
+Additionally, the fuel flow rate for the on-design condition was defined as the 100\% fuel throttle setting.
+
+First, a mesh of the test points was created for each altitude. This contained two square matrices, one with Mach number, and the other with the fuel throttle setting; This ensures that I match every Mach number with every fuel throttle setting and also improves run times by reducing the number of loops required.
+Figure 1 shows what this looks like.
+These matrices were flattened into a 1D array to simplify the later loop 
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=.5\textwidth]{plot/test_points.png}
+    \caption{Evaluation points example: 20x20}
+\end{figure}
+
+Following the generation of the sample points a for loop was initialized to calculate the performance at each point.
+Using a sample Mach number and known inlet conditions values were calculated up to the compressor face in the order shown below. Here $u_0$, $\tau_r$, $\pi_r$, $T_{t0}$, $P_{t0}$, $T_{t2}$, and $P_{t2}$ were calculated.
+The mass flow if there was no spillage was also calculated. This is used in later calculations to find the loss in mass flow through the engine. This is shown in equation 10. The equation for spillage is shown in equation 11.
+
+\begin{equation}
+    \dot{m}_{NS} = \rho_0 u_0 A_1
+\end{equation} 
+
+\begin{equation}
+    Spillage = \dot{m}_{NS} - \dot{m}_{actual}
+\end{equation} 
+
+Since we are lacking knowledge of the performance of the compressor and turbo-machinery at this sample point we need to derive a procedure for numerically solving for this. In doing this I found that a slight modification to the procedure from homework 3 worked. The following equations were used to create a function of only the total temperature at the turbine face.
+
+\noindent Compressor temperature ratio:
+\begin{equation}
+    \tau_c = 1+\frac{T_{t4}}{T_{t0}} \left(1-\tau_t\right)
+\end{equation} 
+
+\noindent Compressor pressure ratio:
+\begin{equation}
+    \pi_c = \left(1+\eta_c \left(\tau_c-1\right)\right)^\frac{\gamma}{\gamma-1}
+\end{equation} 
+
+\noindent $\eta_c$ is also a function of $T_{t4}$ as shown in equation 1.
+
+\noindent Actual mass flow of air:
+
+\begin{equation}
+    \dot{m} = \frac{\Gamma}{\sqrt{R T_{t4}}} A_4 \left[P_0 \pi_r \pi_d \pi_c \pi_b\right]
+\end{equation} 
+
+These were all combined into the following equation. Since we picked the fuel flow rate of this current iteration we can write the following equation.
+
+\begin{equation}
+    0 = \frac{\dot{m} C_p}{h} \left(T_{t4} - \tau_c T_{t2} \right) - \dot{m}_f
+\end{equation} 
+
+Since this is multiple equations all with the same unknown variable we can use a root solver to find $T_{t4}$. In this case I am using the python function scipy.optimize.fsolve(). Here I would enter the equation, equation 15 in this case, and initial guess for the temperature. For each case except for the 12 km case I used the initial guess of 900 K, however I noticed the 12 km case was very sensitive to this initial guess. For this I ended up using 700 K.
+After solving for this value the rest of the engine can be solved for. Using the $\pi_c$ calculated from equation 13 we can use equation 2 to find the turbo-machinery RPM. and since the turbine temperature and pressure ratios are constant we can use those to directly calculate the total pressure and temperature at the exit.
+
+\begin{equation}
+    T_{t8} = T_{t4} \tau_t
+\end{equation} 
+
+\begin{equation}
+    P_{t8} = P_{t4} \pi_t
+\end{equation} 
+
+\noindent Then using isentropic mach relations we can find the static pressure and temperature at the exit. For this analysis we are assuming that the nozzle exit/throat is choked:
+
+\begin{equation}
+    T_{8} = \frac{T_{t8}}{1+\frac{\gamma-1}{2}} 
+\end{equation} 
+
+\begin{equation}
+    P_{8} = \frac{P_{t8}}{\left(1+\frac{\gamma-1}{2}\right)^{\frac{\gamma}{\gamma-1}}} 
+\end{equation} 
+
+\noindent This can then be used to calculate the exit velocity:
+\begin{equation}
+    u_{8} = \sqrt{\gamma R T_8} 
+\end{equation} 
+
+\noindent Now that we know the inlet exit velocity and pressure as well as the mass flow of air we can calculate the thrust of the engine at the current iteration:
+
+\begin{equation}
+    F = \dot{m} \left(u_8 - u_0\right)+ \left(P_8 - P_0\right) A_8
+\end{equation} 
 
 \subsection{Results}
-Figure 1-4 show the contours for the operational space for the engine at each sea level, 4000 m, 8000 m, and 12000 m.
+Figure 2-5 show the contours for the operational space for the engine at each sea level, 4000 m, 8000 m, and 12000 m. 
+These results were then bound by the maximum and minimum values allowed by the engine control system. Compressor ratios
+higher than 18.0 or lower than 7.5, shaft RPM greater than 66000, and turbine entrance total
+temperatures higher than 1800K were removed, as well as some non-physical results.
 The numerical results were verified by using the on design point.
 At 8000 m this method gave the same solution as the method from part 1 for the design point.
-
-\pagebreak 
-% \begin{figure}[hbt!]
-%     \centering
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/0_m_pic.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/0_m_rpm.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/0_m_spill.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/0_m_thrust.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/0_m_Tt4.png}}
-%     \caption{Sea Level (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
-%     \label{fig:foobar}
-% \end{figure}
-
-% \pagebreak 
-% \begin{figure}[hbt!]
-%     \centering
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/4000_m_pic.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/4000_m_rpm.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/4000_m_spill.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/4000_m_thrust.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/4000_m_Tt4.png}}
-%     \caption{4000 m (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
-%     \label{fig:foobar}
-% \end{figure}
-
-% \pagebreak 
-% \begin{figure}[hbt!]
-%     \centering
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/8000_m_pic.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/8000_m_rpm.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/8000_m_spill.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/8000_m_thrust.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/8000_m_Tt4.png}}
-%     \caption{8000 m (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
-%     \label{fig:foobar}
-% \end{figure}
-
-% \pagebreak 
-% \begin{figure}[hbt!]
-%     \centering
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/12000_m_pic.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/12000_m_rpm.png}} 
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/12000_m_spill.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/12000_m_thrust.png}}
-%     \subfigure[]{\includegraphics[width=0.45\textwidth]{plot/12000_m_Tt4.png}}
-%     \caption{12000 m (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
-%     \label{fig:foobar}
-% \end{figure}
 
 
 \section{Conclusion}
 
+Using the process in this paper the design space of an engine can be analyzed if given curve fits for compressor efficiency and turbo-machinery RPM. 
+For the given engine it can be seen that as the altitude increases, the engine needs less fuel to maintain a higher Mach number; The engine is also able to achieve higher mach numbers that what were possible at lower altitudes. 
+An issue that presents itself with the increase in altitude is that the performance space allowed by the engine control system continues to decrease in size.
+This means that at higher altitudes the engine needs to fit within tighter and tighter margins to have an acceptable turbo-machinery RPM, compressor pressure ratio, and turbine temperature.
+There will likely be an altitude where it is not possible for the turbine to spool enough to maintain the necessary pressure for combustion.
+
+
+There were many valid assumptions used in this analysis though there are certainly things that could be improved.
+For this analysis a massive contributor to error could be the assumption that the pressure ratio of the inlet is constant. As the engine goes through transonic and supersonic speeds one should expect to see shocks forming at the inlet which will cause significant changes in that pressure term.
+This pressure drop could probably be modeled using an 2D fit of Mach number and angle of attack. While the change will most likely be very small, accounting for the change in turbine efficiency would further improve accuracy. Accounting for variations in burner efficiency and pressure ratio could also have an impact on the results. Between Mach 0 and 2.5 there is a large difference in the inlet total pressure which would have an effect on the combustion efficiency.
+Having more information about the engine can allow for more robust mission planing for this engine which can then be integrated into the engine control system to allow for improved performance at different altitude and Mach numbers. 
+
+\pagebreak 
+\begin{figure}[hbt!]
+    \centering
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/0_m_pic.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/0_m_rpm.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/0_m_spill.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/0_m_thrust.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/0_m_Tt4.png}}
+    \caption{Sea Level (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
+    \label{fig:foobar}
+\end{figure}
+
+\pagebreak 
+\begin{figure}[hbt!]
+    \centering
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/4000_m_pic.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/4000_m_rpm.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/4000_m_spill.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/4000_m_thrust.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/4000_m_Tt4.png}}
+    \caption{4000 m (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
+    \label{fig:foobar}
+\end{figure}
+
+\pagebreak 
+\begin{figure}[hbt!]
+    \centering
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/8000_m_pic.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/8000_m_rpm.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/8000_m_spill.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/8000_m_thrust.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/8000_m_Tt4.png}}
+    \caption{8000 m (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
+    \label{fig:foobar}
+\end{figure}
+
+\pagebreak 
+\begin{figure}[hbt!]
+    \centering
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/12000_m_pic.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/12000_m_rpm.png}} 
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/12000_m_spill.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/12000_m_thrust.png}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{plot/12000_m_Tt4.png}}
+    \caption{12000 m (a) $\pi_c$ (b) Turbo-Machine RPM (c) Spillage (d) Thrust (e) $T_{t4}$}
+    \label{fig:foobar}
+\end{figure}
+
+
+\pagebreak 
+\pagebreak 
+\pagebreak 
+
+
 
 
 \pagebreak
-\section*{Appendix A}
+\section{Appendix A}
 \begin{python}
     # A comment
     # %%
@@ -435,7 +568,8 @@ table = np.array([
     \end{python}
 
 \pagebreak
-\section*{Appendix B}
+
+\section{Appendix B}
 \begin{python}
 import numpy as np
 import scipy
