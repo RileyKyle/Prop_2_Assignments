@@ -41,7 +41,7 @@ def quasi_1D_flow(
     dS = 1
     dW_dot = dw/m_dot
 
-    for j in range(N):
+    for j in range(N+1):
         
         x += dx
 
