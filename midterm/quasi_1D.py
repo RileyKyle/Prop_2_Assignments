@@ -5,6 +5,25 @@ class air:
     Cp = 1004.5
     gamma = 1.4
 
+
+def Friction_comp_circle(rho, u, A, dx, Cf):
+    if Cf == 0:
+        return 0
+    else:
+        r = np.sqrt(A/np.pi)
+        c = 2*np.pi*r
+        dS = c * dx
+        tau_w = 1/2*rho*u**2*Cf
+        return tau_w*dS/A
+    
+def dq_conv_circle(Tw,Tt,dx,A,Cp,Cf):
+    if Cf == 0 or Tw == 0:
+        return 0
+    else:
+        D = 2 * np.sqrt(A/np.pi)
+        return 2*Cp*Cf*(Tw-Tt)*(dx/D)
+    
+
 def quasi_1D_flow(
         inlet: list[float], 
         Af = lambda x: 1 , 
@@ -14,53 +33,44 @@ def quasi_1D_flow(
         w: float = 0, 
         q: float = 0,
         Cf: float = 0,
-        eta: float = 1):
+        eta: float = 1,
+        Tw: float = 0):
     
     gas = eval(f'{gas}')
     Cp, R, gamma = gas.Cp, gas.R, gas.gamma
 
     u, T, P, M = np.empty(N+1), np.empty(N+1), np.empty(N+1), np.empty(N+1)
 
-    u[0] =     inlet[0]
-    T[0] =     inlet[1] 
-    P[0] =     inlet[2]
+    u[0], T[0], P[0] = inlet[0], inlet[1], inlet[2] 
     M[0] = u[0]/np.sqrt(gamma*R*T[0])
-    print(M[0])
     rho =  P[0]/(R*T[0])
-
 
     x = 0
     dx = L / N
     A = Af(x)
 
     dw = w/N
-    dq = q/N
+    dq_rad = q/N
     m_dot = rho*u[0]*A
-    
-
-    dS = 1
     dW_dot = dw/m_dot
 
-    for j in range(N+1):
+    for j in range(N):
         
         x += dx
 
-        tau_w = 1/2*rho*u[j]**2*Cf
-
-        if tau_w > 0:
-            r = np.sqrt(A/np.pi)
-            c = 2*np.pi*r
-            dS = c * dx
+        Tt = Cp*T[j] + u[j]**2/2
+        SF = Friction_comp_circle(rho, u[j], A, dx, Cf)
+        dq = dq_rad + dq_conv_circle(Tw,Tt,dx,A,Cp,Cf)
             
         Ap1 = Af(x)
         dA = Ap1 - A
         
         du = -(
-            ((1/P[j] * (rho*eta*dW_dot - tau_w*dS/A) - 1/(Cp*T[j]) * (dq + dw)) + dA/A)/
+            ((1/P[j] * (rho*eta*dW_dot -SF) - 1/(Cp*T[j]) * (dq + dw)) + dA/A)/
             (1/u[j] - u[j]/(R*T[j]) + u[j]/(Cp*T[j]))
         )
 
-        dP = rho*eta*dW_dot - tau_w*dS/A - rho*u[j]*du
+        dP = rho*eta*dW_dot - SF - rho*u[j]*du
 
         dT = 1/(Cp*T[j]) * (dq + dw - u[j]*du)
 
@@ -86,6 +96,7 @@ def quasi_1D_flow(
         if M[0] > 1 and M[j+1] < 1:
             print('error 3')
             break 
-
         
     return [u,T,P], M, x, A
+
+
