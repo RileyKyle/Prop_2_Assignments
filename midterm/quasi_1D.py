@@ -14,7 +14,7 @@ def Friction_comp_circle(rho, u, A, dx, Cf):
         c = 2*np.pi*r
         dS = c * dx
         tau_w = 1/2*rho*u**2*Cf
-        return tau_w*dS/A
+        return tau_w*dS/A/rho
     
 def dq_conv_circle(Tw,Tt,dx,A,Cp,Cf):
     if Cf == 0 or Tw == 0:
@@ -27,7 +27,7 @@ def dq_conv_circle(Tw,Tt,dx,A,Cp,Cf):
 def quasi_1D_flow(
         inlet: list[float], 
         Af = lambda x: 1 , 
-        L: float = 1 , 
+        L: float = 1.0 , 
         gas: str = 'air',
         N: int   = 100_000, 
         w: float = 0, 
@@ -45,8 +45,8 @@ def quasi_1D_flow(
     M[0] = u[0]/np.sqrt(gamma*R*T[0])
     rho =  P[0]/(R*T[0])
 
-    x = 0
-    dx = L / N
+    x = 0.0
+    dx = float(L / N)
     A = Af(x)
 
     dw = w/N
@@ -58,22 +58,30 @@ def quasi_1D_flow(
         
         x += dx
 
-        Tt = Cp*T[j] + u[j]**2/2
+        # skin friction component
         SF = Friction_comp_circle(rho, u[j], A, dx, Cf)
+        
+        # convective and radiative heating
+        # Tt = (Cp*T[j] + u[j]**2/2)/Cp
+        Tt = T[j]*(1+(gamma-1)/2*M[j]**2)
         dq = dq_rad + dq_conv_circle(Tw,Tt,dx,A,Cp,Cf)
             
         Ap1 = Af(x)
         dA = Ap1 - A
         
+        # change in velocity
         du = -(
-            ((1/P[j] * (rho*eta*dW_dot -SF) - 1/(Cp*T[j]) * (dq + dw)) + dA/A)/
-            (1/u[j] - u[j]/(R*T[j]) + u[j]/(Cp*T[j]))
+            ((rho/P[j] * (eta*dw -SF) - 1/(Cp*T[j]) * (dq + dw)) + dA/A)/
+            (1/u[j] - u[j]*rho/(P[j]) + u[j]/(Cp*T[j]))
         )
+        
+        # change in pressure
+        dP = rho*eta*dw - rho*SF - rho*u[j]*du
 
-        dP = rho*eta*dW_dot - SF - rho*u[j]*du
-
+        # change in temperature
         dT = 1/(Cp*T[j]) * (dq + dw - u[j]*du)
 
+        # change in density
         drho = rho*(dP/P[j] - dT/T[j])
 
         A = Ap1
