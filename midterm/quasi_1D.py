@@ -34,7 +34,8 @@ def quasi_1D_flow(
         q: float = 0,
         Cf: float = None,
         eta: float = 1,
-        Tw: float = None):
+        Tw: float = None
+        ):
     
     # load gas
     gas = eval(f'{gas}')
@@ -110,5 +111,3 @@ def quasi_1D_flow(
             break 
         
     return [u,T,P], M, x, A
-
-
