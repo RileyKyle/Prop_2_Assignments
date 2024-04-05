@@ -25,16 +25,16 @@ def dq_conv_circle(Tw,Tt,dx,A,Cp,Cf):
     
 
 def quasi_1D_flow(
-        inlet: list[float], 
-        Af = lambda x: 1 , 
-        L: float = 1.0 , 
+        inlet: list[float], # m/s, K, Pa, Mach#
+        Af = lambda x: 1 ,  # m^2
+        L: float = 1.0 ,    # m
         gas: str = 'air',
         N: int   = 100_000, 
-        w: float = 0, 
-        q: float = 0,
+        w: float = 0,       # J/kg
+        q: float = 0,       # J/kg
         Cf: float = None,
         eta: float = 1,
-        Tw: float = None
+        Tw: float = None    # K
         ):
     
     # load gas
@@ -48,6 +48,7 @@ def quasi_1D_flow(
     u[0], T[0], P[0] = inlet[0], inlet[1], inlet[2] 
     M[0] = u[0]/np.sqrt(gamma*R*T[0])
     rho =  P[0]/(R*T[0])
+    rho0 = rho # used in thrust calculation
 
     # this assumes that shaft work and radiative heat transfer are spread evenly through the tube
     dw = w/N
@@ -110,4 +111,5 @@ def quasi_1D_flow(
             print('error 3')
             break 
         
-    return [u,T,P], M, x, A
+    Thrust = (rho*u[-1]**2+P[-1])*Af(L) - (rho0*u[0]+P[0])*Af(0)
+    return [u,T,P], M, x, A, Thrust
