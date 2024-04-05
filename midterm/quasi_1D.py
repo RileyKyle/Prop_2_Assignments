@@ -46,23 +46,24 @@ def quasi_1D_flow(
     rho =  P[0]/(R*T[0])
 
     x = 0.0
-    dx = float(L / N)
+    
     A = Af(x)
 
     dw = w/N
     dq_rad = q/N
     m_dot = rho*u[0]*A
-    dW_dot = dw/m_dot
+    
+    xl = np.linspace(0,L,N+1)
+    dx = float(L / N)
 
     for j in range(N):
         
-        x += dx
+        x = xl[j+1]
 
         # skin friction component
         SF = Friction_comp_circle(rho, u[j], A, dx, Cf)
         
         # convective and radiative heating
-        # Tt = (Cp*T[j] + u[j]**2/2)/Cp
         Tt = T[j]*(1+(gamma-1)/2*M[j]**2)
         dq = dq_rad + dq_conv_circle(Tw,Tt,dx,A,Cp,Cf)
             
@@ -71,15 +72,15 @@ def quasi_1D_flow(
         
         # change in velocity
         du = -(
-            ((rho/P[j] * (eta*dw -SF) - 1/(Cp*T[j]) * (dq + dw)) + dA/A)/
+            (rho/P[j]*(eta*dw -SF) - (dq + dw)/(Cp*T[j]) + dA/A) /
             (1/u[j] - u[j]*rho/(P[j]) + u[j]/(Cp*T[j]))
         )
         
         # change in pressure
-        dP = rho*eta*dw - rho*SF - rho*u[j]*du
+        dP = rho*(eta*dw - SF - u[j]*du)
 
         # change in temperature
-        dT = 1/(Cp*T[j]) * (dq + dw - u[j]*du)
+        dT = (dq + dw - u[j]*du)/Cp
 
         # change in density
         drho = rho*(dP/P[j] - dT/T[j])
