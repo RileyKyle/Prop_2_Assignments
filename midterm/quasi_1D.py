@@ -37,6 +37,7 @@ def quasi_1D_flow(
         Tw: float = None    # K
         ):
     
+    
     # load gas
     gas = eval(f'{gas}')
     Cp, R, gamma = gas.Cp, gas.R, gas.gamma
