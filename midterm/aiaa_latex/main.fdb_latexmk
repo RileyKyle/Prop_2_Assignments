@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1712649936.62001 "c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/midterm/aiaa_latex/main.tex" "main.pdf" "main" 1712649939.11551 0
-  "c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/midterm/aiaa_latex/main.tex" 1712649935 5785 3649ba46d85b1c2c7fc84637423eaec7 ""
+["pdflatex"] 1712696115.09064 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/midterm/aiaa_latex/main.tex" "main.pdf" "main" 1712696116.33302 0
+  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/midterm/aiaa_latex/main.tex" 1712696114 3066 f711ef9fbd43aa51939a07c9d6d20e44 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1712437872 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1712437872 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1712436566 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -44,7 +44,6 @@
   "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxmi7.vf" 1712437872 2576 4000b56c7179792370b883556f71007a ""
   "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxmia.vf" 1712437872 2056 17a96727a1080b515c483edfb4650902 ""
   "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy.vf" 1712437872 1804 0d5405efa3655e9ce85ebf4efa9b7f0b ""
-  "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy5.vf" 1712437872 1852 729c2bf5aecca1c077a058610b5c0949 ""
   "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy7.vf" 1712437872 1932 eb3a33127536e5b93d4fbe6076112b0d ""
   "c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1712437777 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2024/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1712435103 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -157,11 +156,11 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1712440860 5519690 1698f96789543a09b6b0e33aada59581 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1712441076 8222569 47587654b6a9fdafb43f10bd2492c958 ""
   "c:/texlive/2024/texmf.cnf" 1712440815 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1712649938 477 c1b859b207f07e4f78d00458c6525272 "pdflatex"
-  "main.out" 1712649938 98 19d62912d0aa8536fa36363dc63a68b0 "pdflatex"
-  "main.tex" 1712649935 5785 3649ba46d85b1c2c7fc84637423eaec7 ""
+  "images/quasi1D.png" 1712694006 98481 fdf1330828e3f972b3e12f5ca0dfd67c ""
+  "main.aux" 1712696116 422 2ccf8af86b1cf3133cdc1158abca8ee2 "pdflatex"
+  "main.out" 1712696116 98 19d62912d0aa8536fa36363dc63a68b0 "pdflatex"
+  "main.tex" 1712696114 3066 f711ef9fbd43aa51939a07c9d6d20e44 ""
   "new-aiaa.cls" 1706472852 2938 6495496c6ec29c9d8effcadfbb8e6731 ""
-  "output.png" 1710731787 586470 74a8c25bb2ad6bab3be80fed234c8bce ""
   (generated)
   "main.aux"
   "main.log"

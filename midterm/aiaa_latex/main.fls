@@ -1,8 +1,8 @@
-PWD c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/midterm/aiaa_latex
+PWD c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/midterm/aiaa_latex
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/rjk12/OneDrive - University of Missouri/Classes/Spring 2024/Prop 2/Prop_2_Assignments/midterm/aiaa_latex/main.tex
+INPUT c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/midterm/aiaa_latex/main.tex
 OUTPUT main.log
 INPUT ./new-aiaa.cls
 INPUT new-aiaa.cls
@@ -248,6 +248,12 @@ INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc
+INPUT ./images/quasi1D.png
+INPUT ./images/quasi1D.png
+INPUT ./images/quasi1D.png
+INPUT ./images/quasi1D.png
+INPUT ./images/quasi1D.png
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT c:/texlive/2024/texmf-dist/tex/latex/newtx/ot1minntx.fd
@@ -312,20 +318,6 @@ INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txex-bar.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntx-Regular-tlf-ot1.vf
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txmiaX.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1r.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxmia.vf
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txmiaSTbb.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntx-Regular-tlf-ot1.vf
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txmiaX.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1r.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy5.vf
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txsys.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txex-bar.tfm
-INPUT ./output.png
-INPUT ./output.png
-INPUT ./output.png
-INPUT ./output.png
-INPUT ./output.png
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

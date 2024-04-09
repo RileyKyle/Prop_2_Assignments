@@ -20,7 +20,14 @@
 
 \clearpage
 
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/quasi1D.png}
+    \caption{Quasi 1D flow}
+\end{figure}
+
 \section{Methodology}
+
 
 For this assignment a code was developed to integrate the quasi-1D flow equations using the callorically perfect gas assumption.
 The equations of state are:
@@ -54,148 +61,56 @@ The variable that was solved for was $du$ due to its presence in the continuity,
     {\frac{1}{u}-\frac{u}{R T} + \frac{u}{Cp T}}
 \end{equation}
 
+The code itself will take the following inputs: an array with the velocity, temperature, and pressure.;
+A function defining the area of the stream tube with respect to x;
+length of the stream tube;
+name of the working fluid;
+number of iterations;
+work per mass through the stream tube;
+heat per mass through the stream tube;
+skin friction coefficient;
+work efficiency;
+and wall temperature. 
 
+
+After entering these inputs and pre-generating arrays, equation 5 was used to solve for $du$. 
+This was then entered into equations 2 and 3 to find $dP$ and $dT$.
+This was then plugged into equation 4 to solve for $d\rho$. 
+$dw$ is defined as the total work divided by the number of axial steps and $dq$ for circular ducts is defined as:
 
 \begin{equation}
-    \left(\frac{x}{L}\right)_{T_w=T_s} = 1+\frac{1}{\pi} \tan^{-1}{\frac{-\pi D}{2 C_f L}}
-    \rightarrow x_{T_w=T_s}= \boxed{0.9031078 \ m}
+    dq = dq_{conv} + dq_{rad} =  
+    2 C_p C_f \left(T_w - T_t\right)\frac{dx}{D} + \frac{q}{N}
 \end{equation}
 
-Use this equation to find $\Delta{T_m}$:
-
-\begin{equation}
-    T_s = T_{t_1} + \frac{2 C_F L}{\pi D} \Delta{T_m} \left({1+\sqrt{1+\left(\frac{\pi D}{2 C_f L}\right)^2}}\right)
-    \rightarrow\Delta{T_m}=460.152 \ K
-\end{equation}
-
-
-We can then use this equation to find the total temperature at station 2:
-
-\begin{equation}
-    T_{t_2} - T_{t_1}  = \frac{4 C_F L}{\pi D} \Delta{T_m}
-    \rightarrow T_{t_2}=3129.420 \ K
-\end{equation}
-
-Since we know the change in temperature through the reactor we can calculate the heat generated using:
-
-
-\begin{equation}
-    \dot{Q}=\dot{m} c_p \left(T_{t_2} - T_{t_1}\right)
-    =\boxed{21.147 \ MW}
-\end{equation}
-
-Where:
-
-\begin{equation}
-    c_p = \frac{\gamma}{\gamma-1} R 
-    =14437.5 \frac{J}{kgK}
-\end{equation}
-
-The following equation, along with a root solver (scipy.optimize.fsolve), can be used to find the mach number at station 2:
-
-\begin{equation}
-    \sqrt{\frac{T_{t_2}}{T_{t_1}}} = 
-    \frac{M_2}{M_1} \left[\frac{1+\gamma M_1^2 \left[1-\frac{C_f L}{D}\right]}{1+\gamma M_2^2 \left[1+\frac{C_f L}{D}\right]}\right] 
-    \left[\frac{1+\frac{\gamma-1}{2}M_2^2}{1+\frac{\gamma-1}{2}M_1^2}\right]^{\frac{1}{2}}
-    \rightarrow M_2= 0.138137
-\end{equation}
-
-The static pressure ratio is:
-
-\begin{equation}
-    \frac{P_2}{P_1} = 
-    \left[\frac{1+\gamma M_1^2 \left[1-\frac{C_f L}{D}\right]}{1+\gamma M_2^2 \left[1+\frac{C_f L}{D}\right]}\right] 
-    = 0.85751166
-\end{equation}
-
-Then we can find the pressure at location 2:
-
-\begin{equation}
-    \frac{P_{t_2}}{P_{t_1}} = 
-    \frac{P_2}{P_1}
-    \left[\frac{1+\frac{\gamma-1}{2}M_2^2}{1+\frac{\gamma-1}{2}M_1^2}\right]^{\frac{\gamma}{\gamma-1}} 
-    = 0.86847317 \rightarrow P_{t_2} = 173.695 \ {kPa}
-\end{equation}
-
-This total pressure and temperature is also the total pressure and temperature at the exit of the nozzle given that we have an isentropic nozzle.\newline
-
-Because the nozzle is isentropic we can use the following equation to find the Mach number at the nozzle exit:
-
-\begin{equation}
-    \dot{m}_{H_2}= 
-    \frac{P_{t_e A_e}}{\sqrt{T_{t_e}}} \sqrt{\frac{\gamma}{R}}
-    M_e  (1+ \frac{\gamma-1}{2} M_e^2)^{\frac{-(\gamma+1)}{2 (\gamma-1)}}
-    \rightarrow M_e = 6.99997 \approx 7.0
-\end{equation}
-
-Using the Mach number, total temperature, and total pressure we can find the temperature and pressure at the exit.\newline
-
-Exit temperature is:
-
-\begin{equation}
-    T_e= 
-    \frac{T_{te}}{1+\frac{\gamma-1}{2} M_e^2}
-    = 289.763 \ K
-\end{equation} 
-
+Using this methodology, calculating the fluid dynamics through a stream tube using the quasi 1D approach with 1 million steps takes 4.9 seconds.
+As shown in the results, it is able to do this while only having small numerical differences with the analytical solution.
 \pagebreak 
-Exit pressure is:
 
-\begin{equation}
-    P_e= 
-    \frac{P_{te}}{\left(1+\frac{\gamma-1}{2} M_e^2\right)^{\frac{\gamma}{\gamma-1}}}
-    = 41.958 \ Pa
-\end{equation}
-
-The velocity at the exit is:
-
-\begin{equation}
-    u_e= 
-    M_e \sqrt{\gamma R T_e}
-    = 9055.114 \ m/s
-\end{equation}
+\section*{Case 1}
 
 
-Because the control volume is drawn around the propellant tanks there is only mass flow leaving the system. 
-Because of this we calculate the thrust using only the exit velocity and pressure. 
-Also since the external pressure should be close to zero that term cancels out.\newline
-
-The thrust produced by the engine is:
-
-\begin{equation}
-    F= 
-    \dot{m}_p u_e + P_e A_e
-    = \boxed{4593.557 \ N}
-\end{equation}
-
-Then the specific impulse can be found with:
-
-\begin{equation}
-    I_{sp}= 
-    \frac{F}{\dot{m}_p g_0}
-    = \boxed{ 936.505 \ sec}
-\end{equation}
+\section*{Case 2}
 
 
 
-The total temperature of the gas and the wall with respect to their axial location can be plotted using the following equations:
-
-\begin{equation}
-    T_t = T_{t_1} 
-    + \frac{2 C_f}{D} \Delta T_m \frac{L}{\pi}\left[1-\cos{\frac{\pi x}{L}} \right]
-\end{equation}
-
-\begin{equation}
-    T_w = T_{t_1} 
-    + \frac{2 C_f}{D} \Delta T_m \frac{L}{\pi}\left[1-\cos{\frac{\pi x}{L}} \right]
-    + \Delta T_m \sin{\frac{\pi x}{L}}
-\end{equation}
+\section*{Case 3}
 
 
-\begin{figure}[hbt!]
-    \centering
-    \includegraphics[width=0.75\textwidth]{output.png}
-    \caption{Gas total temperature and wall temperature along the axial direction}
-\end{figure}
+
+\section*{Case 4}
+
+
+
+\section*{Case 5}
+
+
+
+\section*{Case 6}
+
+
+
+\section*{Case 7}
+
 
 \end{document}
