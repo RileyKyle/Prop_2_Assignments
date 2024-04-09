@@ -112,5 +112,5 @@ def quasi_1D_flow(
             print('error 3')
             break 
         
-    Thrust = (rho*u[-1]**2+P[-1])*Af(L) - (rho0*u[0]+P[0])*Af(0)
+    Thrust = (rho*u[-1]**2+P[-1])*Af(L) - (rho0*u[0]**2+P[0])*Af(0)
     return [u,T,P], M, x, A, Thrust
