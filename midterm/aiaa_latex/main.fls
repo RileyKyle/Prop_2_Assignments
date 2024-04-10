@@ -318,6 +318,12 @@ INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txex-bar.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntx-Regular-tlf-ot1.vf
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txmiaX.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1r.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy5.vf
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txsys.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txex-bar.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntx-Regular-tlf-ot1.vf
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txmiaX.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1r.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

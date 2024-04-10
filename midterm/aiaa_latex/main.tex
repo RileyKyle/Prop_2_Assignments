@@ -28,7 +28,7 @@
 
 \section{Methodology}
 
-
+\subsection{quasi 1D flow solver}
 For this assignment a code was developed to integrate the quasi-1D flow equations using the callorically perfect gas assumption.
 The equations of state are:
 
@@ -87,30 +87,72 @@ Using this methodology, calculating the fluid dynamics through a stream tube usi
 As shown in the results, it is able to do this while only having small numerical differences with the analytical solution.
 \pagebreak 
 
-\section*{Case 1}
+\subsection{Additional Equations}
+
+\begin{equation}
+    F = \dot{m} \left(u_e - u_i\right)+ P_e A_e - P_i A_i
+\end{equation} 
+\begin{equation}
+    \frac{T_t}{T} = 1 + \frac{\gamma-1}{2} M^2
+\end{equation} 
+\begin{equation}
+    \frac{P_t}{P} = \left(1 + \frac{\gamma-1}{2} M^2\right)^{\frac{\gamma}{\gamma-1}}
+\end{equation} 
+\begin{equation}
+    C_p T_t = C_p T + \frac{u^2}{2}
+\end{equation}
+
+\subsection*{Case 1}
+
+Isentropic diverging subsonic nozzle.
 
 
-\section*{Case 2}
+\begin{equation}
+    G(M)= 
+    \frac{A}{A^*}=
+    \frac{1}{M} \left[\frac{2}{\gamma+1} \left(1+\frac{\gamma-1}{2} M^2 \right)\right]^{\frac{\gamma+1}{2(\gamma-1)}}
+\end{equation}
+
+\begin{equation}
+    \frac{A_e}{A_i} = \frac{G(M_e)}{G(M_i)} \rightarrow G(M_e) \rightarrow M_e
+\end{equation}
 
 
 
-\section*{Case 3}
+\subsection*{Case 2}
+Rayleigh flow tube.
+
+\begin{equation}
+    f(M) = \left[
+    \frac{1+\frac{\gamma-1}{2} M^2}{\left(1+\gamma M^2\right)^2}
+    \right]
+\end{equation}
+
+\begin{equation}
+    \frac{T_{te}}{T_{ti}} = 
+    1 + \frac{q}{C_p T_{t1}} = 
+    \frac{f(M_e)}{f(M_i)} \rightarrow f(M_e)
+\end{equation}
+
+
+\subsection*{Case 3}
 
 
 
-\section*{Case 4}
+\subsection*{Case 4}
 
 
 
-\section*{Case 5}
+\subsection*{Case 5}
 
 
 
-\section*{Case 6}
+\subsection*{Case 6}
 
 
 
-\section*{Case 7}
+\subsection*{Case 7}
+
 
 
 \end{document}

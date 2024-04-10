@@ -59,7 +59,7 @@ def quasi_1D_flow(
     xl = np.linspace(0,L,N+1)
     dx = float(L / N)
     A = Af(0)
-    
+    Qconv = 0
     for j in range(N):
         
         x = xl[j+1] # I found that this ran the same speed as if I just added dx
@@ -72,7 +72,10 @@ def quasi_1D_flow(
         
         # convective and radiative heating
         Tt = T[j]*(1+(gamma-1)/2*M[j]**2)
-        dq = dq_rad + dq_conv_circle(Tw,Tt,dx,A,Cp,Cf)
+        
+        dq_conv = dq_conv_circle(Tw,Tt,dx,A,Cp,Cf)
+        Qconv += dq_conv
+        dq = dq_rad + dq_conv
             
         # change in velocity
         du = -(
@@ -111,6 +114,6 @@ def quasi_1D_flow(
         if M[0] > 1 and M[j+1] < 1:
             print('error 3')
             break 
-        
+    print(Qconv)    
     Thrust = (rho*u[-1]**2+P[-1])*Af(L) - (rho0*u[0]**2+P[0])*Af(0)
     return [u,T,P], M, x, A, Thrust
