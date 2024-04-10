@@ -26,7 +26,7 @@
     \caption{Quasi 1D flow}
 \end{figure}
 
-\section{Methodology}
+\section{Numerical Methodology}
 
 \subsection{quasi 1D flow solver}
 For this assignment a code was developed to integrate the quasi-1D flow equations using the callorically perfect gas assumption.
@@ -87,6 +87,7 @@ Using this methodology, calculating the fluid dynamics through a stream tube usi
 As shown in the results, it is able to do this while only having small numerical differences with the analytical solution.
 \pagebreak 
 
+
 \subsection{Additional Equations}
 
 \begin{equation}
@@ -102,11 +103,14 @@ As shown in the results, it is able to do this while only having small numerical
     C_p T_t = C_p T + \frac{u^2}{2}
 \end{equation}
 
-\subsection*{Case 1}
-
-Isentropic diverging subsonic nozzle.
+\section{Problem Descriptions and Analytical Methodology}
 
 
+
+\subsection*{Case 1: Isentropic Diverging Subsonic Nozzle}
+
+This problem uses Mach area relations. 
+With these two equations and the use of a root finder the Mach number at the exit can be found. 
 \begin{equation}
     G(M)= 
     \frac{A}{A^*}=
@@ -117,10 +121,15 @@ Isentropic diverging subsonic nozzle.
     \frac{A_e}{A_i} = \frac{G(M_e)}{G(M_i)} \rightarrow G(M_e) \rightarrow M_e
 \end{equation}
 
+Since the flow is isentropic the total temperature and pressure are constant.
+Using the exit Mach number and inlet total temperature and pressure, the conditions at the exit can be found.
 
+\subsection*{Case 2: Rayleigh Flow Tube}
 
-\subsection*{Case 2}
-Rayleigh flow tube.
+Using equations for constant area heat addition, first the total temperature at the exit can be found.
+When heat is added to a constant area tube one should expect to see total temperature increase and total pressure drop.
+The flow is supersonic at the inlet so through the tube the Mach number should heat towards 1.
+Using the ratio of the total temperatures from the inlet and exit as well as a numerical solver (this can also be solved analytically) the exit Mach number can be found.
 
 \begin{equation}
     f(M) = \left[
@@ -134,24 +143,54 @@ Rayleigh flow tube.
     \frac{f(M_e)}{f(M_i)} \rightarrow f(M_e)
 \end{equation}
 
+\noindent The exit pressure can then be found by using the following equation.
 
-\subsection*{Case 3}
+\begin{equation}
+    P_e = P_i \frac{1+\gamma M_i^2}{1+\gamma M_e^2} 
+\end{equation}
+
+\noindent This is enough information to find the rest of the conditions for the exit.
+
+\subsection*{Case 3: Fanno Flow Tube}
+This problem involves a constant area adiabatic tube with no heat addition and has viscous effects.
+Because the flow is adiabatic one should expect to see a constant total temperature, though since there are irreversibility introduced there will be a drop in total pressure.
+Since the flow is supersonic the Mach number should also move downward towards 1. To solve for the exit Mach number the following two equations can be used.
+
+\begin{equation}
+    f_v (M) = \frac{\gamma+1}{2} \ln{\frac{1+\frac{\gamma-1}{2} M^2}{M^2}} - \frac{1}{M^2}
+\end{equation}
+
+\begin{equation}
+    f_v (M_e) = \gamma C_f \frac{c}{A} L + f_v (M_i)
+\end{equation}
+
+By setting the second equation equal to the first, a root finding algorithm can be used to find the exit Mach number.
+Now that the exit Mach number is known and that the flow is adiabatic, the following can be said.
+
+\begin{equation}
+    \frac{P_e}{P_i} = \frac{M_i}{M_e} \left[\frac{1+\frac{\gamma-1}{2}M^2_i}{1+\frac{\gamma-1}{2}M^2_e}\right]^{1/2}
+\end{equation}
+
+\noindent Knowing the exit Mach number, total temperature, and static pressure the rest of the exit conditions can be found.
+
+
+\subsection*{Case 4: Convective Heat Transfer}
+
+This problem has a hot wall transferring heat through convection into a fluid with a lower static temperature.
+This convective heat transfer starts with the interaction between the boundary layer and the wall, so this problem is a viscous problem.
+
+\noindent No analytical solution is given for this problem
 
 
 
-\subsection*{Case 4}
+\subsection*{Case 5 and 6: Variable Area Work Interaction}
 
 
 
-\subsection*{Case 5}
+\subsection*{Case 7: Variable Area Work Interaction with Convective Heat Transfer}
 
 
-
-\subsection*{Case 6}
-
-
-
-\subsection*{Case 7}
+\noindent No analytical solution is given for this problem
 
 
 
