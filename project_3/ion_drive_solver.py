@@ -1,0 +1,127 @@
+import numpy as  np
+
+class air:
+    R = 287
+    Cp = 1004.5
+    gamma = 1.4
+
+
+def Friction_comp_circle(rho, u, A, dx, Cf):
+    if Cf == None or Cf == 0:
+        return 0
+    else:
+        r = np.sqrt(A/np.pi)
+        c = 2*np.pi*r
+        dS = c * dx
+        tau_w = 1/2*rho*u**2*Cf
+        return tau_w*dS/A/rho
+    
+def dq_conv_circle(Tw,Tt,dx,A,Cp,Cf):
+    if Cf == None or Cf == 0  or Tw == None:
+        return 0
+    else:
+        D = 2 * np.sqrt(A/np.pi)
+        return 2*Cp*Cf*(Tw-Tt)*(dx/D)
+    
+
+def quasi_1D_flow(
+        inlet: list[float], # m/s, K, Pa, Mach#
+        Af = lambda x: 1 ,  # m^2
+        L: float = 1.0 ,    # m
+        gas: str = 'air',
+        N: int   = 100_000, 
+        w: float = 0,       # J/kg
+        q: float = 0,       # J/kg
+        Cf: float = None,
+        eta: float = 1,
+        Tw: float = None    # K
+        ):
+    
+    
+    # load gas
+    gas = eval(f'{gas}')
+    Cp, R, gamma = gas.Cp, gas.R, gas.gamma
+
+    # initialize arrays
+    u, T, P, M = np.empty(N+1), np.empty(N+1), np.empty(N+1), np.empty(N+1)
+
+    # add inlet conditions to the arrays
+    u[0], T[0], P[0] = inlet[0], inlet[1], inlet[2] 
+    M[0] = u[0]/np.sqrt(gamma*R*T[0])
+    rho =  P[0]/(R*T[0])
+    rho0 = rho # used in thrust calculation
+
+    # this assumes that shaft work and radiative heat transfer are spread evenly through the tube
+    dw = w/N
+    dq_rad = q/N
+    
+    # break flow tube into finite chunks
+    xl = np.linspace(0,L,N+1)
+    dx = float(L / N)
+    A = Af(0)
+    Qconv = 0
+    for j in range(N):
+        
+        x = xl[j+1] # I found that this ran the same speed as if I just added dx
+                    # this is good because just adding dx can introduce some floating point error
+        Ap1 = Af(x)
+        dA = Ap1 - A
+
+        # skin friction component
+        SF = Friction_comp_circle(rho, u[j], A, dx, Cf)
+        
+        # convective and radiative heating
+        Tt = T[j]*(1+(gamma-1)/2*M[j]**2)
+        
+        dq_conv = dq_conv_circle(Tw,Tt,dx,A,Cp,Cf)
+        Qconv += dq_conv
+        dq = dq_rad + dq_conv
+            
+        # change in velocity
+        du = -(
+            (rho/P[j]*(eta*dw -SF) - (dq + dw)/(Cp*T[j]) + dA/A) /
+            (R*T[j]/u[j] - u[j] + u[j]*R/(Cp))
+        )
+        
+        # change in temperature
+        dT = (dq + dw - u[j]*du)/Cp
+
+        
+        # change in density
+        drho = rho*(dP/P[j] - dT/T[j])
+
+        
+        # change in pressure
+        dP = (
+            (dA/A+dT/T[j]+drho/rho-(dW+dq)/(Cp*T[j]))/
+            (1/u[j]+u/(T[0]*Cp))
+            )
+
+        
+
+
+        # add the change
+        u[j+1] = u[j] + du
+        T[j+1] = T[j] + dT
+        P[j+1] = P[j] + dP
+        rho    = rho  + drho
+
+        M[j+1] = u[j+1]/np.sqrt(gamma*R*T[j+1])
+        
+        A = Ap1
+        
+        # error checking statements
+        if u[j+1] < 0 or T[j+1] < 0 or P[j+1] < 0:
+            print('error 1')
+            break
+
+        if M[0] < 1 and M[j+1] > 1:
+            print('error 2') 
+            break
+
+        if M[0] > 1 and M[j+1] < 1:
+            print('error 3')
+            break 
+    print(Qconv)    
+    Thrust = (rho*u[-1]**2+P[-1])*Af(L) - (rho0*u[0]**2+P[0])*Af(0)
+    return [u,T,P], M, x, A, Thrust

@@ -1,0 +1,97 @@
+\documentclass[journal ]{new-aiaa}
+%\documentclass[conf]{new-aiaa} for conference papers
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+
+\usepackage{pythonhighlight}
+\usepackage{longtable,tabularx}
+\setlength\LTleft{0pt} 
+
+
+\title{Project 3: Ion Drive Rocket Analysis}
+
+\author{Riley J. Kyle\footnote{Aerospace Engineering Student, MAE}}
+\affil{Missouri University of Science and Technology, Rolla, Missouri, 65409, United States}
+\author{Dr. David W. Riggins\footnote{Professor of Mechanical and Aerospace Engineering, MAE}}
+\affil{Missouri University of Science and Technology, Rolla, Missouri, 65409, United States}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+The purpose of this project is to 
+\end{abstract}
+
+\section*{Nomenclature}
+{\renewcommand\arraystretch{0.8}
+\noindent\begin{longtable*}{@{}l @{\quad=\quad} l@{}}
+$T$  & temperature $[K]$ \\
+$P$ &    pressure $[Pa]$\\
+$\rho$ & density $\left[kg/m^3\right]$\\
+$T_t$ & total temperature $[K]$\\
+$P_t$ & total pressure $[Pa]$\\
+$u$ & velocity $\left[m/s \right]$\\
+$M$ & mach number\\
+$A$ & area $\left[m^2 \right]$\\
+$F$ & thrust $\left[N \right]$\\
+$R$ & gas constant $\left[J/kgK\right]$\\
+$C_p$ & constant pressure specific heat $\left[J/kgK\right]$\\
+$\gamma$ & specific heat ratio\\
+$\dot{m}$ & mass flow rate $\left[kg/s\right]$\\
+
+$I_{sp}$ & specific impulse $\left[s\right]$\\
+$g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
+
+\end{longtable*}}
+
+
+
+
+\section{Introduction}
+\lettrine{T}{he} purpose of this project temperature and pressure information is shown in table \ref{tab:table0}. This data was used when running the solver at each altitude.
+
+
+\pagebreak 
+
+\section{bruh idk}
+\subsection{Methodology}
+
+
+\noindent The following equation can be used to calculate the propellant mass required to perform a maneuver.
+\begin{equation}
+    \frac{\Delta v}{C} =
+    \ln{\frac{m_0}{m_0-m_p}}-\int_{T_0}^{T_f}{\frac{D}{C m}}dt - \int_{T_0}^{T_f}{\frac{g \cos{\theta}}{C}}dt
+\end{equation} 
+\noindent Because the drag term and the gravity can be ignored, this equation can be simplified to the following.
+\begin{equation}
+    \frac{m_0}{m_0-m_p} = e^{\frac{\Delta v}{C}}
+\end{equation}
+\noindent C in this equation is the effective exhaust velocity which can be found by using the following.
+\begin{equation}
+    I_{sp} = \frac{C}{g_0}
+\end{equation}
+
+
+\subsection{Results}
+asdfasdf
+\section{Conclusion}
+
+asdfasdf
+\pagebreak 
+
+
+
+
+\pagebreak
+\section{Appendix A}
+
+    
+\end{document}
