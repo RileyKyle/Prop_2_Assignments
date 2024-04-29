@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.6)  27 APR 2024 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.6)  29 APR 2024 04:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -920,7 +920,7 @@ LaTeX Warning: Reference `tab:table0' on page 1 undefined on input line 59.
 
 [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [2] [3] (./main.aux)
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [2] [3] [4] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -930,21 +930,21 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 467BFC8F499BAEB8E92F6967AE0897B3;582.
+(rerunfilecheck)             Checksum: E8509094A399439B62BAF1030FE8348E;929.
  ) 
 Here is how much of TeX's memory you used:
- 25179 strings out of 474104
- 456634 string characters out of 5747503
+ 25193 strings out of 474104
+ 456788 string characters out of 5747503
  1938496 words of memory out of 5000000
- 47131 multiletter control sequences out of 15000+600000
- 626547 words of font info for 141 fonts, out of 8000000 for 9000
+ 47133 multiletter control sequences out of 15000+600000
+ 627143 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,8n,131p,1077b,931s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,8n,131p,1077b,941s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmb.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (3 pages, 158771 bytes).
+Output written on main.pdf (4 pages, 165459 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 33329 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 133 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 33345 words of extra memory for PDF output out of 35830 (max. 10000000)
 

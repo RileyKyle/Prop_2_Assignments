@@ -61,18 +61,18 @@ $g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
 
 \pagebreak 
 
-\section{bruh idk}
-\subsection{Methodology}
+\section{Methodology}
+\subsection{Rocket Analysis}
 
 
 \noindent The following equation can be used to calculate the propellant mass required to perform a maneuver.
 \begin{equation}
     \frac{\Delta v}{C} =
-    \ln{\frac{m_0}{m_0-m_p}}-\int_{T_0}^{T_f}{\frac{D}{C m}}dt - \int_{T_0}^{T_f}{\frac{g \cos{\theta}}{C}}dt
+    \ln{\left(\frac{m_0}{m_0-m_p}\right)}-\int_{t_0}^{t_f}{\frac{D}{C m}}dt - \int_{t_0}^{t_f}{\frac{g \cos{\theta}}{C}}dt
 \end{equation} 
 \noindent Because the drag term and the gravity can be ignored, this equation can be simplified to the following.
 \begin{equation}
-    \frac{m_0}{m_0-m_p} = e^{\frac{\Delta v}{C}}
+    m_p = m_0 \left(1 - e^{\frac{-\Delta v}{C}}\right)
 \end{equation}
 \noindent C in this equation is the effective exhaust velocity which can be found by using the following.
 \begin{equation}
@@ -80,7 +80,44 @@ $g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
 \end{equation}
 
 
-\subsection{Results}
+
+
+\subsection{Ion Drive Analysis}
+
+\begin{equation}
+    I_{sp} = \frac{1}{g_0} \sqrt{2 \frac{q}{m} \left(\phi_A - \phi_C \right)} \rightarrow \left(\phi_A - \phi_C \right) = V 
+\end{equation}
+
+\begin{equation}
+    e
+\end{equation}
+
+
+\subsection{Brayton Cycle Analysis}
+
+\begin{equation}
+    \pi_t = \frac{1}{\pi_c}
+\end{equation}
+
+\begin{equation}
+    \frac{T_4}{T_3} = 1-\eta_t \left(1-\pi_t^{\frac{\gamma-1}{\gamma}}\right)
+\end{equation}
+
+\begin{equation}
+    \frac{T_2}{T_a} = 1+\frac{1}{\eta_c} \left(\pi_c^{\frac{\gamma-1}{\gamma}}-1\right)
+\end{equation}
+
+\begin{equation}
+    \eta = 1 - \frac{T_4 - T_a}{T_3 - T_2}
+\end{equation}
+
+\begin{equation}
+    \frac{A_{rad}}{W_{out}} = 
+    \frac{\left(\frac{1}{\eta} - 1\right)}{3(T_4 - T_a)\sigma \epsilon}
+    \left(\frac{1}{T_a^3} - \frac{1}{T_4^3}\right)
+\end{equation}
+
+\section{Results}
 asdfasdf
 \section{Conclusion}
 
