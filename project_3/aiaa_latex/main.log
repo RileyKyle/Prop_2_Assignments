@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.6)  2 MAY 2024 04:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.6)  2 MAY 2024 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -898,55 +898,58 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.0pt on input line 29.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 33.
+(Font)              scaled to size 12.0pt on input line 37.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 33.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 59.
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/ntxtlf/m/sc/10'.
-(microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 24.53409pt on input line 59.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 36.29312pt on input line 59.
-Package lettrine.sty Info: Targeted height = 24.53409pt
-(lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 24.53413pt (T);
-(lettrine.sty)             reported on input line 59.
+(Font)              scaled to size 12.0pt on input line 37.
  [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 149--152
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
 
  []
 
 [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
 
  []
 
-[6] [7] [8] (./main.aux)
+[6] [7]
+<ion.png, id=95, 360.59718pt x 264.99pt>
+File: ion.png Graphic file (type png)
+<use ion.png>
+Package pdftex.def Info: ion.png  used on input line 343.
+(pdftex.def)             Requested size: 234.8775pt x 172.60132pt.
+<Brayton.png, id=97, 437.38406pt x 314.67563pt>
+File: Brayton.png Graphic file (type png)
+<use Brayton.png>
+Package pdftex.def Info: Brayton.png  used on input line 348.
+(pdftex.def)             Requested size: 234.8775pt x 168.9812pt.
+<rocket.png, id=98, 429.10312pt x 316.18124pt>
+File: rocket.png Graphic file (type png)
+<use rocket.png>
+Package pdftex.def Info: rocket.png  used on input line 353.
+(pdftex.def)             Requested size: 234.8775pt x 173.07039pt.
+ [8 <./ion.png> <./Brayton.png> <./rocket.png>] [9] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F1EF51E0DD589EC5491C7BB818FD6C32;749.
+(rerunfilecheck)             Checksum: 48A6DA21CE3FAFC8632AE5225CF55EF6;628.
  ) 
 Here is how much of TeX's memory you used:
- 25227 strings out of 474104
- 457294 string characters out of 5747503
+ 25242 strings out of 474104
+ 457455 string characters out of 5747503
  1940496 words of memory out of 5000000
- 47129 multiletter control sequences out of 15000+600000
- 628383 words of font info for 152 fonts, out of 8000000 for 9000
+ 47147 multiletter control sequences out of 15000+600000
+ 619400 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  95i,8n,131p,1077b,939s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmb.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (8 pages, 183379 bytes).
+Output written on main.pdf (9 pages, 234556 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
+ 175 PDF objects out of 1000 (max. 8388607)
  135 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 33329 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 48 named destinations out of 1000 (max. 500000)
+ 27192 words of extra memory for PDF output out of 29859 (max. 10000000)
 

@@ -27,7 +27,11 @@
 
 
 \begin{abstract}
-The purpose of this project is to 
+The purpose of this project is to analyze an ion drive propelled, free space rocket, with a Brayton cycle power plant.
+Given the total mass (80,000 kg) and payload mass (5,000 kg), the required propellant and engine mass are found.
+The engine mass and other given values are used to calculate the ion drive performance and power requirements.
+The power required by the ion drive is then used to in designing the required Brayton cycle power plant. 
+By knowing the engine performance and onboard propellant the time of flight and distance traveled can be found numerically.
 \end{abstract}
 
 \section*{Nomenclature}
@@ -52,11 +56,6 @@ $g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
 
 \end{longtable*}}
 
-
-
-
-\section{Introduction}
-\lettrine{T}{he} purpose of this project 
 
 
 \pagebreak 
@@ -337,12 +336,27 @@ Repeat for all time steps.\\
 
 
 \pagebreak 
+\section{Results}
 
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=.5\textwidth]{ion.png}
+\end{figure}
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=.5\textwidth]{Brayton.png}
+\end{figure}
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=.5\textwidth]{rocket.png}
+\end{figure}
 
 
 
 \pagebreak
-\section{Appendix A}
+\section*{Appendix A}
 
     
 \end{document}

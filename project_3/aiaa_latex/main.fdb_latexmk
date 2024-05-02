@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1714641803.18074 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" "main.pdf" "main" 1714641804.72951 0
-  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" 1714641802 11385 ecc2413474df1ab07ccd0b43be105544 ""
-  "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1712437872 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
+["pdflatex"] 1714680247.47936 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" "main.pdf" "main" 1714680249.24318 0
+  "Brayton.png" 1714679518 33746 4b06bf280f0fdccf80008a0e6b0c2bc2 ""
+  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" 1714680246 12194 a153986e91a059db8881ed88b96fa217 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1712437872 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1712437872 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1712439557 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -14,7 +14,6 @@
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Italic-tlf-t1.tfm" 1712437872 11524 8ba2f557ba7dc63d1e9e4c8cc65c9b60 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm" 1712437872 3008 ca0c83ca288d9f1c5d2fca0e8e268f10 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1r.tfm" 1712437872 3056 db59b44fb00cc29b676bd92c4dc6750f ""
-  "c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-sc-t1.tfm" 1712437872 12276 8de6ae5fb2f9bd3a12436b80d518726e ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm" 1712437872 11580 86fb9f1fbe830bcc3e5ca9d9fb704e6b ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntxexa.tfm" 1712437872 760 e8ec875a87aa119f1af7ea4be48da9e8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntxexx.tfm" 1712437872 1788 252bc928adbd02cba8c68f0fccd62f6c ""
@@ -172,10 +171,12 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1712440860 5519690 1698f96789543a09b6b0e33aada59581 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1712441076 8222569 47587654b6a9fdafb43f10bd2492c958 ""
   "c:/texlive/2024/texmf.cnf" 1712440815 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1714641804 939 d508c8a9b873911a9e2e596d86c3bd40 "pdflatex"
-  "main.out" 1714641804 749 f1ef51e0dd589ec5491c7bb818fd6c32 "pdflatex"
-  "main.tex" 1714641802 11385 ecc2413474df1ab07ccd0b43be105544 ""
+  "ion.png" 1714679477 21279 87583158a2788d92333cfe4d9706b00f ""
+  "main.aux" 1714680249 826 4b02bf844dfea05aa0a7b0e292f83a08 "pdflatex"
+  "main.out" 1714680249 628 48a6da21ce3fafc8632ae5225cf55ef6 "pdflatex"
+  "main.tex" 1714680246 12194 a153986e91a059db8881ed88b96fa217 ""
   "new-aiaa.cls" 1712650906 3046 6495496c6ec29c9d8effcadfbb8e6731 ""
+  "rocket.png" 1714679540 31438 d5cc3a6cc1a6d9368bc119266f29b6e8 ""
   (generated)
   "main.aux"
   "main.log"
