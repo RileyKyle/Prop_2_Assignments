@@ -61,8 +61,7 @@ $g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
 
 \pagebreak 
 
-\section{Methodology}
-\subsection{Rocket Analysis}
+\section{Rocket Analysis}
 
 
 \noindent The following equation can be used to calculate the propellant mass required to perform a maneuver.
@@ -81,10 +80,10 @@ $g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
 
 \noindent The required propellant mass for each stage of the flight is:
 \begin{equation*}
-    m_{p_a} = 51134.167\; kg
+    m_{p_a} = \boxed{51,134.167\; kg}
 \end{equation*}
 \begin{equation*}
-    m_{p_d} = 51134.167\; kg
+    m_{p_d} = \boxed{18,450.379\; kg}
 \end{equation*}
 This gives a total propellant mass of:
 \begin{equation*}
@@ -96,27 +95,59 @@ The engine mass $m_e$ can be calculated using the equation below.
 Here $m_0$ is the initial mass, $m_p$ is the propellant mass, and $m_L$ is the payload mass.
 
 \begin{equation}
-    m_e = m_0 - \left(m_p + m_L\right) = 5415.454 \;kg
+    m_e = m_0 - \left(m_p + m_L\right) = \boxed{5415.454 \;kg}
 \end{equation}
 
 \noindent This engine mass is then used in subsequent ion drive calculations. 
+\pagebreak 
 
+\section{Ion Drive Analysis}
+Using the engine mass calculated previously the total engine power, accelerator and ionizer, can be calculated given that the engine power per unit engine mass is 600 Watts per kilogram.
 
+\begin{equation*}
+    W_{engine} = \boxed{3,249,272\; W}
+\end{equation*}
 
-
-
-\subsection{Ion Drive Analysis}
+Since it is known that the ionizer uses 35\% of the power that the accelerator uses, the accelerator power can be found by using the following:
 
 \begin{equation}
-    I_{sp} = \frac{1}{g_0} \sqrt{2 \frac{q}{m} \left(\phi_A - \phi_C \right)} \rightarrow \left(\phi_A - \phi_C \right) = V 
+    W_{accelerator} = W_{ion} = \frac{W_{engine}}{1+35/100} = 2,406,868 \;W
 \end{equation}
+
+The effective exhaust velocity in the specific impulse equation can be rewritten in terms of propellant charge per mass and potential difference. Solving for the potential difference gives the voltage required by the accelerator.
 
 \begin{equation}
-    e
+    I_{sp} = \frac{1}{g_0} \sqrt{2 \frac{q}{m} \left(\phi_A - \phi_C \right)} 
+    \rightarrow \left(\phi_A - \phi_C \right) = V = \boxed{235,778 \;V} 
 \end{equation}
 
+\noindent Using the accelerator power and voltage, the required current can be calculated:
 
-\subsection{Brayton Cycle Analysis}
+\begin{equation}
+    I = \frac{W_{ion}}{V} = \boxed{10.208\;A}
+\end{equation}
+
+\noindent Using the maximum allowable voltage gradient the distance between the anode and cathode can be found:
+
+\begin{equation} 
+    \frac{\left(\phi_A - \phi_C \right)}{d} = 10^5 \;\frac{V}{cm} \rightarrow d = \boxed{2.35778\;cm}
+\end{equation}
+
+To find the beam area the equation for current per cross sectional area can be used. Because the assumption that the maximum possible current is being used the following can be done:
+\begin{equation} 
+    j_{max} = 0.4444 \epsilon_0 \sqrt{2 \frac{q}{m}} \frac{\left(\phi_A - \phi_C \right)^{3/2}}{d^2} 
+    = 57.273\; \frac{A}{m^2}
+\end{equation}
+
+\noindent Where $\epsilon_0$ is the universal constant of permittivity of free space $8.85\times10^{-12} \; \frac{C^2}{N m^2}$
+\\
+\\\noindent The area is then:
+
+\begin{equation}
+    A_{beam} = \frac{I}{j_{max}} = \boxed{1782.37\;cm^2 = 0.178237\;m^2}
+\end{equation}
+
+\section{Brayton Cycle Analysis}
 
 \begin{equation}
     \pi_t = \frac{1}{\pi_c}
@@ -141,10 +172,7 @@ Here $m_0$ is the initial mass, $m_p$ is the propellant mass, and $m_L$ is the p
 \end{equation}
 
 \section{Results}
-asdfasdf
-\section{Conclusion}
 
-asdfasdf
 \pagebreak 
 
 
