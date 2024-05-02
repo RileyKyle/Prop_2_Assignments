@@ -76,8 +76,31 @@ $g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
 \end{equation}
 \noindent C in this equation is the effective exhaust velocity which can be found by using the following.
 \begin{equation}
-    I_{sp} = \frac{C}{g_0}
+    C = I_{sp} g_0 = 34335.0 \;m/s
 \end{equation}
+
+\noindent The required propellant mass for each stage of the flight is:
+\begin{equation*}
+    m_{p_a} = 51134.167\; kg
+\end{equation*}
+\begin{equation*}
+    m_{p_d} = 51134.167\; kg
+\end{equation*}
+This gives a total propellant mass of:
+\begin{equation*}
+    m_{p} = 69584.546\; kg
+\end{equation*}
+
+Using the assumption that after the deceleration all the propellant is spent (the only remaining mass is that of the engine and payload), knowledge of the initial mass and payload mass can be used to calculate the engine mass.
+The engine mass $m_e$ can be calculated using the equation below. 
+Here $m_0$ is the initial mass, $m_p$ is the propellant mass, and $m_L$ is the payload mass.
+
+\begin{equation}
+    m_e = m_0 - \left(m_p + m_L\right) = 5415.454 \;kg
+\end{equation}
+
+\noindent This engine mass is then used in subsequent ion drive calculations. 
+
 
 
 
