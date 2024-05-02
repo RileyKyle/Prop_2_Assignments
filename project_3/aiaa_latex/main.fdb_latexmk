@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1714628867.16201 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" "main.pdf" "main" 1714628868.53806 0
-  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" 1714628866 6226 0d5131608bfed00967fdc674c1fdecb9 ""
+["pdflatex"] 1714641803.18074 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" "main.pdf" "main" 1714641804.72951 0
+  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/project_3/aiaa_latex/main.tex" 1714641802 11385 ecc2413474df1ab07ccd0b43be105544 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1712437872 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1712437872 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1712437872 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -172,9 +172,9 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1712440860 5519690 1698f96789543a09b6b0e33aada59581 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1712441076 8222569 47587654b6a9fdafb43f10bd2492c958 ""
   "c:/texlive/2024/texmf.cnf" 1712440815 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1714628868 929 a45eebe205eb9739027f1ab13483fd2a "pdflatex"
-  "main.out" 1714628868 696 01797674bfa29f05e7ea649e7c5f2c3a "pdflatex"
-  "main.tex" 1714628866 6226 0d5131608bfed00967fdc674c1fdecb9 ""
+  "main.aux" 1714641804 939 d508c8a9b873911a9e2e596d86c3bd40 "pdflatex"
+  "main.out" 1714641804 749 f1ef51e0dd589ec5491c7bb818fd6c32 "pdflatex"
+  "main.tex" 1714641802 11385 ecc2413474df1ab07ccd0b43be105544 ""
   "new-aiaa.cls" 1712650906 3046 6495496c6ec29c9d8effcadfbb8e6731 ""
   (generated)
   "main.aux"

@@ -56,7 +56,7 @@ $g_0$ & standard gravitational acceleration $\left[9.81 m/s^2\right]$\\
 
 
 \section{Introduction}
-\lettrine{T}{he} purpose of this project temperature and pressure information is shown in table \ref{tab:table0}. This data was used when running the solver at each altitude.
+\lettrine{T}{he} purpose of this project 
 
 
 \pagebreak 
@@ -114,6 +114,13 @@ Since it is known that the ionizer uses 35\% of the power that the accelerator u
     W_{accelerator} = W_{ion} = \frac{W_{engine}}{1+35/100} = 2,406,868 \;W
 \end{equation}
 
+\noindent This gives an accelerator efficiency of:
+
+\begin{equation}
+    \eta_{accelerator} =\frac{W_a}{W_{engine}} \times 100 \% = \boxed{74.074 \%}
+\end{equation}
+
+
 The effective exhaust velocity in the specific impulse equation can be rewritten in terms of propellant charge per mass and potential difference. Solving for the potential difference gives the voltage required by the accelerator.
 
 \begin{equation}
@@ -144,34 +151,190 @@ To find the beam area the equation for current per cross sectional area can be u
 \\\noindent The area is then:
 
 \begin{equation}
-    A_{beam} = \frac{I}{j_{max}} = \boxed{1782.37\;cm^2 = 0.178237\;m^2}
+    A_{beam} = \frac{I}{j_{max}} = 1782.37\;cm^2 = 0.178237\;m^2
+\end{equation}
+
+\noindent The beam diameter is:
+\begin{equation*}
+    D_{beam} = \sqrt{\frac{\pi A_{beam}}{4}} = \boxed{0.47638\;m} 
+\end{equation*}
+
+\noindent Following this, and using the same maximum current assumption, the thrust can be found:
+\begin{equation}
+    T = F = 0.8888 \epsilon_0 \left(\frac{\phi_A - \phi_C}{d}\right)^2 A_{beam}
+    = \boxed{140.20\;N}
+\end{equation}
+
+Now that thrust is known and the effective exhaust velocity was found previously, the mass flow through the engine can be found:
+
+\begin{equation}
+    T = \dot{m} C \rightarrow \dot{m} =\boxed{0.00408327 \frac{kg}{s}=4.08327\; \frac{g}{s}} 
 \end{equation}
 
 \section{Brayton Cycle Analysis}
 
+First the gas constant and specific heat of diatomic nitrogen was found. 
+$R_u$ is the universal gas constant and M is the molecular weight.
+
 \begin{equation}
-    \pi_t = \frac{1}{\pi_c}
+    R = \frac{R_u}{M} = 296.945\;\frac{J}{kgK}
+\end{equation}
+\begin{equation}
+    C_p = R \frac{\gamma}{\gamma-1} = 1039.307\;\frac{J}{kgK} 
 \end{equation}
 
+Following this a mesh of all possible compressor ratios and compressor inlet temperatures was made.
+This mesh was iterated through until the minimum physical area was found. Solutions resulting in a negative area were removed.
+The following work shows the values for the minimum radiator area solution.
+
+\noindent First, guess a compressor pressure ratio and radiator exit temperature:
+
+\begin{equation*}
+    \pi_c = \boxed{2.635}
+\end{equation*}
+\begin{equation*}
+    T_a = \boxed{1473.347\;K}
+\end{equation*}
+
+\noindent The turbine pressure ratio is the inverse of the compressor pressure ratio:
+
+\begin{equation}
+    \pi_t = \frac{1}{\pi_c} = 0.37946
+\end{equation}
+
+\noindent Temperature at the radiator entrance/turbine exit:
 \begin{equation}
     \frac{T_4}{T_3} = 1-\eta_t \left(1-\pi_t^{\frac{\gamma-1}{\gamma}}\right)
+    \rightarrow T_4 = \boxed{2347.048\;K}
 \end{equation}
 
+\noindent Temperature at the compressor exit:
 \begin{equation}
     \frac{T_2}{T_a} = 1+\frac{1}{\eta_c} \left(\pi_c^{\frac{\gamma-1}{\gamma}}-1\right)
+    \rightarrow T_2 = \boxed{1995.521\;K}
 \end{equation}
 
+\noindent Thermal efficiency:
 \begin{equation}
-    \eta = 1 - \frac{T_4 - T_a}{T_3 - T_2}
+    \eta = 1 - \frac{T_4 - T_a}{T_3 - T_2} = \boxed{0.1301944}
 \end{equation}
 
+Using the power required for the ion drive and the calculated efficiency and temperatures, the area of the radiator can be calculate.
+$\sigma$ is the Boltzmann constant of radiation ($5.67\times10^{-8}\; \frac{W}{m^2 K^4}$), and $\epsilon$ is the emissivity of the radiator which is assumed to be 1.
+
 \begin{equation}
-    \frac{A_{rad}}{W_{out}} = 
+    \frac{A_{rad}}{W_{out}} = \frac{A_{rad}}{W_{engine}} =
     \frac{\left(\frac{1}{\eta} - 1\right)}{3(T_4 - T_a)\sigma \epsilon}
     \left(\frac{1}{T_a^3} - \frac{1}{T_4^3}\right)
+    \rightarrow A_{rad} = \boxed{34.3705\;m^2}
 \end{equation}
 
-\section{Results}
+\noindent The required heat addition required by the reactor is just the work required divided by the thermal efficiency:
+
+\begin{equation}
+    Q = \frac{W}{\eta} = \boxed{24,957,085\;W}
+\end{equation}
+
+\noindent The required mass flow through the cycle is:
+
+\begin{equation}
+    \dot{m}_{gen} = \frac{\frac{1}{\eta}-1}{T_4-T_a}  \frac{W_{out}}{C_p} = \boxed{23.906\;\frac{kg}{s}}
+\end{equation}
+
+\noindent The power required for the compressor is:
+
+\begin{equation}
+    W_c = \dot{m}_{gen} C_p \left(T_2 - T_a\right)
+    = \boxed{12,973,853\;W}
+\end{equation}
+
+\noindent The power provided by the turbine is:
+
+\begin{equation}
+    W_t = \dot{m}_{gen} C_p \left(T_3 - T_4\right)
+    = \boxed{16,223,126\;W}
+\end{equation}
+
+\noindent The difference of the two returns the power required to run the ion drive.
+\pagebreak 
+\section{Rocket Trajectory}
+
+\noindent The time of flight for the acceleration and deceleration phase of the flight can be calculated using the engine mass flow rate and the propellant required for that phase:
+\begin{equation}
+    TOF = \frac{m_p}{\dot{m}_{ion}}
+\end{equation}
+
+\noindent The time required for acceleration is:
+\begin{equation*}
+    TOF_{acc} = \boxed{12,522,843\;seconds= 144.940\;days}
+\end{equation*}
+
+\noindent The time required for deceleration is:
+\begin{equation*}
+    TOF_{dec} = \boxed{4,518,529\;seconds = 52.298\;days}
+\end{equation*}
+
+
+\noindent The procedure for integrating the velocity goes as shown:
+
+\noindent Create lists with the mass and time from beginning to end of the phase of flight
+
+\noindent Set the initial velocity for the phase $V_0$ to $V_i$ and set distance equal to zero
+
+\noindent Begin loop:
+
+calculate the change in mass from the current time step to the next:
+
+\begin{equation}
+    dm = m_{i+1} - m_i
+\end{equation}
+
+Use the change in mass to calculate the change in velocity:
+
+\begin{equation}
+    dV = -C \frac{dm}{m_i}
+\end{equation}
+
+Add the change in velocity to the current velocity:
+
+\begin{equation}
+    V_{i+1} = V_i + dV
+\end{equation}
+
+Calculate the change in time:
+
+\begin{equation}
+    dt = t_{i+1} - t_i
+\end{equation}
+
+Add the differential distance:
+
+\begin{equation}
+    Distance_{i+1} = Distance_i + V_{i+1} dt 
+\end{equation}
+
+Repeat for all time steps.\\
+
+\noindent During the acceleration phase the spacecraft travels:
+\begin{equation*}
+    Distance = \boxed{1.82547 \times 10^{11}\;m}
+\end{equation*}
+
+\noindent During cruise the spacecraft travels:
+\begin{equation*}
+    Distance = \boxed{1.20960 \times 10^{13}\;m}
+\end{equation*}
+
+\noindent During the deceleration phase the spacecraft travels:
+\begin{equation*}
+    Distance = \boxed{9.22815 \times 10^{10}\;m}
+\end{equation*}
+
+\noindent The total distance traveled is:
+\begin{equation*}
+    Distance = \boxed{1.23708 \times 10^{13}\;m \approx 82.7 AU}
+\end{equation*}
+
 
 \pagebreak 
 
