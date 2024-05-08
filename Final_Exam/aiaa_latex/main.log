@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.6)  6 MAY 2024 23:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.6)  8 MAY 2024 17:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -863,23 +863,55 @@ Package pdftex.def Info: images/3.png  used on input line 76.
 (pdftex.def)             Requested size: 469.75502pt x 307.58745pt.
  [4
 
- <./images/3.png>]
-<images/4.png, id=40, 839.38594pt x 175.40532pt>
+ <./images/3.png>] [5]
+<images/4.png, id=44, 839.38594pt x 175.40532pt>
 File: images/4.png Graphic file (type png)
 <use images/4.png>
-Package pdftex.def Info: images/4.png  used on input line 85.
+Package pdftex.def Info: images/4.png  used on input line 159.
 (pdftex.def)             Requested size: 469.75502pt x 98.16473pt.
- [5
-
- <./images/4.png>]
-<images/5.png, id=47, 852.18375pt x 459.21562pt>
-File: images/5.png Graphic file (type png)
-<use images/5.png>
-Package pdftex.def Info: images/5.png  used on input line 94.
-(pdftex.def)             Requested size: 469.75502pt x 253.14394pt.
  [6
 
- <./images/5.png>] (./main.aux)
+ <./images/4.png>]
+<images/5.png, id=51, 852.18375pt x 459.21562pt>
+File: images/5.png Graphic file (type png)
+<use images/5.png>
+Package pdftex.def Info: images/5.png  used on input line 168.
+(pdftex.def)             Requested size: 469.75502pt x 253.14394pt.
+ [7
+
+ <./images/5.png>]
+<plots/rotor_angles.png, id=59, 462.528pt x 346.896pt>
+File: plots/rotor_angles.png Graphic file (type png)
+<use plots/rotor_angles.png>
+Package pdftex.def Info: plots/rotor_angles.png  used on input line 244.
+(pdftex.def)             Requested size: 375.80544pt x 281.86818pt.
+ [8 <./plots/rotor_angles.png>]
+<plots/stator_angles.png, id=66, 462.528pt x 346.896pt>
+File: plots/stator_angles.png Graphic file (type png)
+<use plots/stator_angles.png>
+Package pdftex.def Info: plots/stator_angles.png  used on input line 250.
+(pdftex.def)             Requested size: 375.80544pt x 281.86818pt.
+<plots/dor.png, id=67, 462.528pt x 346.896pt>
+File: plots/dor.png Graphic file (type png)
+<use plots/dor.png>
+Package pdftex.def Info: plots/dor.png  used on input line 255.
+(pdftex.def)             Requested size: 375.80544pt x 281.86818pt.
+ [9
+
+ <./plots/stator_angles.png> <./plots/dor.png>]
+<plots/diffusion.png, id=76, 462.528pt x 346.896pt>
+File: plots/diffusion.png Graphic file (type png)
+<use plots/diffusion.png>
+Package pdftex.def Info: plots/diffusion.png  used on input line 261.
+(pdftex.def)             Requested size: 375.80544pt x 281.86818pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
+
+ []
+
+[10
+
+ <./plots/diffusion.png>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -888,18 +920,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23652 strings out of 474104
- 432451 string characters out of 5747503
- 1930496 words of memory out of 5000000
- 45682 multiletter control sequences out of 15000+600000
- 588758 words of font info for 89 fonts, out of 8000000 for 9000
+ 23693 strings out of 474104
+ 433319 string characters out of 5747503
+ 1934496 words of memory out of 5000000
+ 45710 multiletter control sequences out of 15000+600000
+ 590709 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,6n,131p,1078b,930s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,7n,131p,1078b,938s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmb.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztmr.pfb>
-Output written on main.pdf (6 pages, 848278 bytes).
+Output written on main.pdf (10 pages, 3091992 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 9754 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 128 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
+ 9774 words of extra memory for PDF output out of 10000 (max. 10000000)
 

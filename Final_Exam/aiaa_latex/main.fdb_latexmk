@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1715054974.79401 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/Final_Exam/aiaa_latex/main.tex" "main.pdf" "main" 1715054976.18811 0
-  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/Final_Exam/aiaa_latex/main.tex" 1715054974 2041 831882f4535acc09a32fc66eedb2dee1 ""
+["pdflatex"] 1715208289.32671 "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/Final_Exam/aiaa_latex/main.tex" "main.pdf" "main" 1715208295.86323 0
+  "c:/Users/rjk12/Documents/git_clones/Prop_2_Assignments/Final_Exam/aiaa_latex/main.tex" 1715208288 6875 b770bb2f6104748be94780b2c9f4d04a ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1712437872 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1712437872 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1712436566 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -44,6 +44,7 @@
   "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxmi7.vf" 1712437872 2576 4000b56c7179792370b883556f71007a ""
   "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxmia.vf" 1712437872 2056 17a96727a1080b515c483edfb4650902 ""
   "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy.vf" 1712437872 1804 0d5405efa3655e9ce85ebf4efa9b7f0b ""
+  "c:/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy7.vf" 1712437872 1932 eb3a33127536e5b93d4fbe6076112b0d ""
   "c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1712437777 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2024/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1712435103 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "c:/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1712435380 40635 c40361e206be584d448876bba8a64a3b ""
@@ -160,10 +161,14 @@
   "images/3.png" 1715044772 323581 eaf91044ac36c008878dcacb0fb72cf1 ""
   "images/4.png" 1715044772 101480 b305041f59f0805040a94262b4a0debe ""
   "images/5.png" 1715044772 261923 6f8e3e6dcde436ff6b70e28a2d364bc6 ""
-  "main.aux" 1715054976 182 8c18b71f0e76d1694bd264ab6f78f1b5 "pdflatex"
-  "main.out" 1715054975 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1715054974 2041 831882f4535acc09a32fc66eedb2dee1 ""
+  "main.aux" 1715208295 183 82c2af174774513f733a2e3d6e3d441f "pdflatex"
+  "main.out" 1715208290 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1715208288 6875 b770bb2f6104748be94780b2c9f4d04a ""
   "new-aiaa.cls" 1715044772 3046 6495496c6ec29c9d8effcadfbb8e6731 ""
+  "plots/diffusion.png" 1715207632 571133 2f30967b401d3adebe7b73038a78d437 ""
+  "plots/dor.png" 1715207631 477960 9961861631caf00d134df49a0a46024a ""
+  "plots/rotor_angles.png" 1715207630 617830 4dc7ee855da6703f51948f3e7cbfa60d ""
+  "plots/stator_angles.png" 1715207628 637657 53b744f55966b36390ed4cb5af0e37fb ""
   (generated)
   "main.aux"
   "main.log"
