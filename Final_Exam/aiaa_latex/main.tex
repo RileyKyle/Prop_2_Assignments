@@ -25,6 +25,17 @@
     \includegraphics[width=1\textwidth]{images/1.png}
 \end{figure}
 
+\noindent The propellant mass is:
+
+\begin{equation*}
+    m_p = m_d \left(e^{\frac{\delta v}{C}}-1\right) = \boxed{3323.825\;kg}
+\end{equation*}
+
+\noindent The overall initial mass is:
+
+\begin{equation*}
+    m_0 = m_e + m_L + m_p = m_d + m_p = \boxed{8323.825\;kg}
+\end{equation*}
 
 
 \clearpage
@@ -32,6 +43,30 @@
     \centering
     \includegraphics[width=1\textwidth]{images/2.png}
 \end{figure}
+
+\noindent For this problem I calculate the Carnot and Brayton efficiency.\\
+
+\noindent The following is the Carnot efficiency:
+
+\begin{equation*}
+    \eta_c = 1 - \frac{T_L}{T_H} = 1 - \frac{T_{rad}}{T_{heat}} = 50\%
+\end{equation*}
+
+\noindent The following equation applies for any cycle:
+
+\begin{equation*}
+    \frac{A_{rad}}{W_{out}} = \frac{1}{\epsilon \sigma T_{R}^4} \left(\frac{1}{\eta} - 1\right)
+\end{equation*}
+
+\noindent Solving for the efficiency gives:
+
+\begin{equation*}
+    \eta_b = 69\%
+\end{equation*}
+
+This design should \textbf{not} move forward. The Carnot efficiency is less than that of the Brayton efficiency.
+This shows that there is a violation of the second law of thermodynamics.
+
 
 
 
@@ -59,16 +94,6 @@
     \includegraphics[width=1\textwidth]{images/5.png}
 \end{figure}
 
-
-
-
-\begin{equation}
-    \frac{d\rho}{\rho} + \frac{du}{u} + \frac{dA}{A} = 0
-\end{equation}
-
-\begin{equation}
-    \frac{dP}{\rho} + u du = \frac{-\tau_w c dx}{\rho A} + \eta \delta w_{shaft}
-\end{equation}
 
 
 
