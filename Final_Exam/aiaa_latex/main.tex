@@ -7,6 +7,7 @@
 \usepackage[version=4]{mhchem}
 \usepackage{siunitx}
 \usepackage{longtable,tabularx}
+\usepackage{pythonhighlight}
 \setlength\LTleft{0pt} 
 
 \title{AE 5335 Final Exam}
@@ -17,13 +18,19 @@
 \maketitle
 
 
-
 \clearpage
 
 \begin{figure}[hbt!]
     \centering
     \includegraphics[width=1\textwidth]{images/1.png}
 \end{figure}
+
+\noindent Characteristic velocity:
+
+\begin{equation*}
+    C = I_{sp} g_0 = 19,620\;m/s
+\end{equation*}
+
 
 \noindent The propellant mass is:
 
@@ -159,7 +166,130 @@ This shows that there is a violation of the second law of thermodynamics.
     \includegraphics[width=1\textwidth]{images/4.png}
 \end{figure}
 
+\noindent \bf On Design:
 
+$M_{0R} = 2$, $T_{0R} = 300 K$, $P_{0R} = 101325\; Pa$, $P_{9R} = P_{0R}$, $T_{t4R} = 1500\;K$, $\pi_{cR} = 20$
+
+\begin{equation*}
+    u_{0R} = M_{0R} \sqrt{\gamma R T_{0R}}
+    =  694.377\;m/s
+\end{equation*}
+\begin{equation*}
+    \tau_{rR} = 1+\frac{\gamma-1}{2} M_{0R}^2
+    = 1.8
+\end{equation*}
+\begin{equation*}
+    \pi_{rR} = \tau_{rR}^{\frac{\gamma}{\gamma-1}}
+    = 7.824
+\end{equation*}
+\begin{equation*}
+    \tau_{cR} = \pi_{cR}^{\frac{\gamma-1}{\gamma}}
+    =  2.354
+\end{equation*}
+\begin{equation*}
+    \tau_{\lambda R} = \frac{T_{t4R}}{T_{0R}}
+    = 5 
+\end{equation*}
+\begin{equation*}
+    \tau_{bR} = \frac{\tau_{\lambda R}}{\tau_{rR} \tau_{cR}}
+    = 1.180 
+\end{equation*}
+\begin{equation*}
+    \tau_{tR} = 1 - \frac{\tau_{rR}}{\tau_{\lambda R} \left(\tau_{cR}-1\right)}
+    =  0.513
+\end{equation*}
+\begin{equation*}
+    \pi_{tR} = \tau_{tR}^{\frac{\gamma}{\gamma-1}}
+    =  0.097
+\end{equation*}
+\begin{equation*}
+    \frac{P_{t9R}}{P_{9R}} = \pi_{tR} \tau_{bR} \pi_{cR}
+    = 15.103 
+\end{equation*}
+\begin{equation*}
+    M_{9R} = \frac{\left(\frac{P_{t9R}}{P_{9R}}\right)^{\frac{\gamma-1}{\gamma}} - 1}{\left(\frac{\gamma-1}{2}\right)^{1/2}}
+    =  2.421
+\end{equation*}
+\begin{equation*}
+    T_{t9R} = T_{0R} \tau_{tR} \tau_{bR} \tau_{cR} \tau_{rR}
+    = 769.085\;K
+\end{equation*}
+\begin{equation*}
+    T_{9R} = \frac{T_{t9R}}{1+\frac{\gamma-1}{2} M_{9R}^2}
+    = 354.076\;K
+\end{equation*}
+\begin{equation*}
+    u_{9R} = M_{9R} \sqrt{\gamma R T_{9R}}
+    = 913.101\;m/s
+\end{equation*}
+\begin{equation*}
+    \dot{m}_{air R} = \frac{F_{R}}{u_{9R} - u_{0R}}
+    = 228.599\;kg/s
+\end{equation*}
+\begin{equation*}
+    A_{4R} =  \dot{m}_{air R} \frac{\sqrt{R}}{\Gamma  P_{0R}\pi_{rR} pi_{cR}} \sqrt{\tau_{\lambda R} T_{0R}}
+    = 0.01381\;m^2
+\end{equation*}
+
+\clearpage
+\noindent \textbf{Off Design:} \\
+
+\noindent Using Fat Jet Assumptions:\\
+$M_0 = 1$, $T_0 = T_{0R}$, $P_0 = P_{0R}$, $P_9 = P_0$, $\tau_t = \tau_{tR}$, $T_{t4} = T_{t4R}$, $\pi_t = \pi_{tR}$, $\tau_{\lambda} = 5$
+
+\begin{equation*}
+    u_{0} = M_{0} \sqrt{\gamma R T_{0}}
+    =  347.189\;m/s
+\end{equation*}
+\begin{equation*}
+    \tau_{r} = 1+\frac{\gamma-1}{2} M_{0}^2
+    = 1.2
+\end{equation*}
+\begin{equation*}
+    \pi_{r} = \tau_{r}^{\frac{\gamma}{\gamma-1}}
+    = 1.893
+\end{equation*}
+\begin{equation*}
+    \tau_c = 1 + \frac{\tau_{\lambda}}{\tau_r} \left(1-\tau_t\right)
+    = 3.03
+\end{equation*}
+\begin{equation*}
+    \tau_b = \frac{\tau_{\lambda}}{\tau_r \tau_c}
+    = 1.375
+\end{equation*}
+\begin{equation*}
+    \pi_{cR} = \tau_{cR}^{\frac{\gamma}{\gamma-1}}
+    =  48.441
+\end{equation*}
+\begin{equation*}
+    \dot{m}_{air R} = \frac{A_{4}}{\frac{\sqrt{R}}{\Gamma  P_{0}\pi_{r} pi_{c}} \sqrt{\tau_{\lambda} T_{0}}} 
+    = 133.948\;kg/s
+\end{equation*}
+\begin{equation*}
+    \frac{P_{t9}}{P_{9}} = \pi_{t} \tau_{b} \pi_{c}
+    = 8.850
+\end{equation*}
+\begin{equation*}
+    M_{9} = \frac{\left(\frac{P_{t9}}{P_{9}}\right)^{\frac{\gamma-1}{\gamma}} - 1}{\left(\frac{\gamma-1}{2}\right)^{1/2}}
+    = 2.079 
+\end{equation*}
+\begin{equation*}
+    T_{t9} = T_{0} \tau_{t} \tau_{b} \tau_{c} \tau_{r}
+    = 769.085\;K
+\end{equation*}
+\begin{equation*}
+    T_{9} = \frac{T_{t9}}{1+\frac{\gamma-1}{2} M_{9}^2}
+    = 412.498\;K
+\end{equation*}
+\begin{equation*}
+    u_{9} = M_{9} \sqrt{\gamma R T_{9}}
+    = 846.394\;m/s
+\end{equation*}\\
+
+\begin{equation*}
+    F = \dot{m}_{air} \left({u_{9} - u_{0}}\right)
+    = \boxed{66867.392\;N}
+\end{equation*}
 
 
 \clearpage
@@ -266,8 +396,118 @@ This shows that there is a violation of the second law of thermodynamics.
 \noindent There are 25 blades for the row in which the chord is given. This was solved by using the following equation:
 
 \begin{equation*}
-    blades = \frac{2 \pi r_m}{chord} = 25
+    \boxed{blades = \frac{2 \pi r_m}{chord} = 25}
 \end{equation*}
+\clearpage
 
+\begin{python}s
+import numpy as np
+import matplotlib.pyplot as plt
+
+stages = 14
+dP = 35_000
+RPM = 30000
+omega = RPM/30 * np.pi
+
+r_tip = 0.1086
+r_hub = 0.03676
+w0 = 130
+rho = 1.32
+
+doR = 0.5 
+
+sigma_m = 1.0 #solidity at mass average radius
+
+itr = 1_000
+r = np.linspace(r_hub,r_tip,itr)
+rm = np.sqrt((r_tip**2 + r_hub**2)/2)
+
+R = 1 - rm**2 / r**2 * (1 - doR)
+Rh = R[0]
+
+V_theta_1_h = w0* 1/2 * (2*omega*r_hub/w0*(1 - Rh) - 1/(omega*r_hub/w0)*(dP/(rho*w0**2))) 
+V_theta_2_h = w0* 1/2 * (2*omega*r_hub/w0*(1 - Rh) + 1/(omega*r_hub/w0)*(dP/(rho*w0**2))) 
+
+
+V_theta_1 = r_hub * V_theta_1_h / r
+V_theta_2 = r_hub * V_theta_2_h / r 
+
+theta_1 = np.arctan(V_theta_1/w0) 
+theta_2 = np.arctan(V_theta_2/w0)
+
+beta_1 = np.arctan(omega*r/w0 - V_theta_1/w0)
+beta_2 = np.arctan(omega*r/w0 - V_theta_2/w0)
+
+sigma = rm / r * sigma_m
+
+D_rotor = 1 - np.cos(beta_1)/np.cos(beta_2) + 1/(2*sigma) * np.abs(np.tan(beta_1)-np.tan(beta_2))*1 /np.cos(beta_1)
+
+theta_3 = theta_1
+D_stator = 1 - np.cos(theta_2)/np.cos(theta_3) + np.abs(np.tan(theta_3) - np.tan(theta_2))/(2*sigma*1/np.cos(theta_2))
+
+fig = plt.figure(1)
+ax = plt.axes()
+ax.plot(r,np.rad2deg(theta_1),label = r'$\theta_1$')
+ax.plot(r,np.rad2deg(theta_2),label = r'$\theta_2$')
+
+
+ax.set_ylabel('Leading/trailing edge of stator (deg)')
+ax.set_xlabel(r'radius (m)')
+plt.tight_layout()
+ax.grid()
+ax.legend()
+plt.savefig(r'stator_angles.png', dpi=1200)
+
+plt.show()
+
+fig = plt.figure(2)
+ax = plt.axes()
+ax.plot(r,np.rad2deg(beta_1),label = r'$\beta_1$')
+ax.plot(r,np.rad2deg(beta_2),label = r'$\beta_2$')
+
+ax.set_ylabel('Leading/trailing edge of rotor (deg)')
+ax.set_xlabel(r'radius (m)')
+plt.tight_layout()
+ax.legend()
+ax.grid()
+plt.savefig(r'rotor_angles.png', dpi=1200)
+plt.show()
+
+fig = plt.figure(3)
+
+
+ax = plt.axes()
+ax.plot(r,R)
+line = np.ones(itr) * doR
+ax.plot(r,line,ls='--',color = 'k')
+
+
+ax.set_ylabel(r'Stage degree of reaction $ \left(\circ^ R \right)$')
+ax.set_xlabel(r'radius (m)')
+plt.grid()
+plt.tight_layout()
+plt.savefig(r'dor.png', dpi=1200)
+plt.show()
+fig = plt.figure(4)
+ax = plt.axes()
+ax.plot(r,D_rotor, label = "Rotor Diffusion")
+ax.plot(r,D_stator,label = "Stator Diffusion")
+line = np.ones(itr) * 0.6
+ax.plot(r,line,ls='--',color = 'k')
+
+
+ax.set_ylabel(r'Diffusion coefficient, D')
+ax.set_xlabel(r'radius (m)')
+plt.grid()
+plt.tight_layout()
+plt.legend()
+plt.savefig(r'diffusion.png', dpi=1200)
+plt.show()
+
+chord = 0.020376 # m
+Cm = rm * 2*np.pi
+blades = Cm / chord
+print(f'{blades = }')
+\end{python}
 
 \end{document}
